@@ -19,7 +19,12 @@ class User < ApplicationRecord
     # ----------------------------------------------------------------
     
     # ASSOCIATIONS - START
-    
+
+    has_many :boards,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Board
+        
     # ASSOCIATIONS - END
     
     # ----------------------------------------------------------------
