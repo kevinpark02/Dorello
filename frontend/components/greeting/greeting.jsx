@@ -9,7 +9,7 @@ const Greeting = ({currentUser, logout}) => {
         </div>
     ) : (
         <div>
-            <Link to="/sigup">Sign Up</Link>
+            <Link to="/signup">Sign Up</Link>
             <Link to="/login">Log In</Link>
         </div>
     );
