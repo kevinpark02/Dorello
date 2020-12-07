@@ -6,7 +6,7 @@ import configureStore from './store/store';
 
 
 // FOR TESTING - START
-    // import { signup, login, logout } from "./actions/session_actions";
+import { login } from "./actions/session_actions";
 // FOR TESTING - END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,9 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const store = configureStore();
 
     // FOR TESTING - START
-        // window.signup = signup;
-        // window.login = login;
-        // window.logout = logout;
+    window.login = login;
+
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     // FOR TESTING - END
