@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthRoute } from "../util/route_util";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Route } from 'react-router-dom';
 
 import GreetingContainer from "./greeting/greeting_container";
@@ -19,14 +19,14 @@ const App = () => (
       <GreetingContainer />
     </header>
 
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
+    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-    <Route path="/feed" component={BoardIndexContainer} />
-    <Route path="/feed" component={BoardFormContainer} />
+    <ProtectedRoute path="/feed" component={BoardIndexContainer} />
+    <ProtectedRoute path="/feed" component={BoardFormContainer} />
 
-    <Route path="/boards/:boardId" component={BoardShowContainer}/>
-    <Route path="/boards/:boardId/edit" component={EditBoardFormContainer} />
+    <ProtectedRoute path="/boards/:boardId" component={BoardShowContainer}/>
+    <ProtectedRoute path="/boards/:boardId/edit" component={EditBoardFormContainer} />
     
 
   </div>
