@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import EditBoard from './edit_board';
+import EditBoardForm from './edit_board_form';
 import { fetchBoard, updateBoard } from '../../actions/board_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditBoard);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBoardForm);
