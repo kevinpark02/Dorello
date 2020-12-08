@@ -1,4 +1,4 @@
-import * as BoardApiUtil from '../util/'
+import * as BoardApiUtil from '../util/session_api_util'
 
 export const RECEIVE_ALL_BOARDS = "RECEIVE_ALL_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
