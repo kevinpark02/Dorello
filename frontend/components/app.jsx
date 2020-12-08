@@ -9,6 +9,7 @@ import SignupFormContainer from "./session_form/signup_form_container";
 import BoardIndexContainer from "./boards/board_index_container";
 import BoardFormContainer from "./boards/create_board_form_container";
 import EditBoardFormContainer from "./boards/edit_board_form_container";
+import BoardShowContainer from "./boards/board_show_container";
 
 
 const App = () => (
@@ -23,6 +24,8 @@ const App = () => (
 
     <Route path="/feed" component={BoardIndexContainer} />
     <Route path="/feed" component={BoardFormContainer} />
+
+    <Route path="/boards/:boardId" component={BoardShowContainer}/>
     <Route path="/boards/:boardId/edit" component={EditBoardFormContainer} />
     
 
