@@ -2,17 +2,17 @@ class Api::BoardsController < ApplicationController
     
     before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
     
-    def index
+    def index #this works
         @boards = Board.all
         render :index
     end
 
-    def show
-        @board = Bench.find_by(id: params[:id])
+    def show #this works
+        @board = Board.find_by(id: params[:id])
     end
 
-    def create
-        @board = Bench.create(board_params)
+    def create #this works
+        @board = Board.new(board_params)
 
         if @board.save
             render :show
@@ -22,7 +22,10 @@ class Api::BoardsController < ApplicationController
     end
 
     def update
-        @board = Bench.find_by(id: params[:id])
+
+        debugger
+
+        @board = current_user.boards.find_by(id: params[:id])
 
         if @board && @board.update(board_params)
             render :show
@@ -31,19 +34,21 @@ class Api::BoardsController < ApplicationController
         end
     end
 
-    def destroy
+    def destroy #this works
         @board = current_user.boards.find_by(id: params[:id])
-
+        
+        # debugger
+        
         if @board && @board.destroy
-            render :index
+            render json: ["You have succesfully deleted your board"]
         else
-            render @board.errors.full_messages, status: 422
+            render json: ["You can't destroy someone else's board"], status: 401
         end
     end
 
     private 
 
     def board_params
-        params.require(:bench).permit(:board_name, :author_id)
+        params.require(:board).permit(:board_name, :author_id)
     end
 end
