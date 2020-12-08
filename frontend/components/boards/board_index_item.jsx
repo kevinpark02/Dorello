@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class BoardIndexItem extends React.Component {
     constructor(props) {
@@ -8,17 +9,21 @@ class BoardIndexItem extends React.Component {
     render() {
         const board = this.props.board;
         const deleteBoard = this.props.deleteBoard;
-        const author_id = this.props.author_id;
+        const authorId = this.props.authorId;
 
-        const button = author_id === board.author_id ? (
+        const deleteButton = authorId === board.author_id ? (
             <button onClick={() => deleteBoard(board.id)}>Delete</button>
+        ) : null
+
+        const editButton = authorId === board.author_id ? (
+            <Link to={`/boards/${board.id}/edit`}>Edit Board Name</Link>
         ) : null
 
         return(
             <div>
                 <li>{board.board_name}</li>
-                {/* <button onClick={() => deleteBoard(board.id)}>Delete</button> */}
-                {button}
+                {editButton}
+                {deleteButton}
             </div>
         )
     }

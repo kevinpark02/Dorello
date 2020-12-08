@@ -12,8 +12,8 @@ class BoardIndex extends React.Component {
 
     render() {
         const boards = this.props.boards;
+        const authorId = this.props.authorId;
         const deleteBoard = this.props.deleteBoard;
-        const author_id = this.props.author_id;
 
         return(
             <div>
@@ -24,11 +24,11 @@ class BoardIndex extends React.Component {
                             <BoardIndexItem board={board}
                                             key={board.id}
                                             deleteBoard={deleteBoard}
-                                            author_id={author_id}/>
+                                            authorId={authorId}/>
                         )
                     })}
                 </ul>
-
+                
             </div>
         )
     }
