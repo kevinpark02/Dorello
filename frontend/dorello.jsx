@@ -7,6 +7,8 @@ import configureStore from './store/store';
 
 // FOR TESTING - START
 import { login } from "./actions/session_actions";
+import { fetchBoards } from "./actions/board_actions";
+import { receiveAllBoards } from "./actions/board_actions";
 // FOR TESTING - END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // FOR TESTING - START
     window.login = login;
+    window.fetchBoards = fetchBoards;
+    window. receiveAllBoards = receiveAllBoards;
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;

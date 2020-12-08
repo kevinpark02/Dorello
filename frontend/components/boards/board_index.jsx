@@ -6,9 +6,9 @@ class BoardIndex extends React.Component {
         super(props)
     }
 
-    // componentDidMount() {
-    //     this.props.fetchBoards();
-    // }
+    componentDidMount() {
+        this.props.fetchBoards();
+    }
 
     render() {
         const boards = this.props.boards;
@@ -18,15 +18,13 @@ class BoardIndex extends React.Component {
             <div>
                 <h2>All Boards</h2>
                 <ul>
-                    <li>
-                        {boards.map(board => {
-                            return(
-                                <BoardIndexItem board={board}
-                                                key={board.id}
-                                                deleteBoard={deleteBoard}/>
-                            )
-                        })}
-                    </li>
+                    {boards.map(board => {
+                        return(
+                            <BoardIndexItem board={board}
+                                            key={board.id}
+                                            deleteBoard={deleteBoard}/>
+                        )
+                    })}
                 </ul>
 
             </div>

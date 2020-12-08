@@ -8,12 +8,11 @@ class BoardIndexItem extends React.Component {
     render() {
         const board = this.props.board;
         const deleteBoard = this.props.deleteBoard;
-
+        
         return(
             <div>
-                <ul>
-                    <li>{board.title}</li>
-                </ul>
+                <li>{board.board_name}</li>
+                <button onClick={() => deleteBoard(board.id)}>Delete</button>
             </div>
         )
     }
