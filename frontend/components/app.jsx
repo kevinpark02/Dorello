@@ -14,9 +14,11 @@ import BoardShowContainer from "./boards/board_show_container";
 
 const App = () => (
   <div>
-    <header>
-      <h1>Dorello</h1>
-      <GreetingContainer />
+    <header className="hero">
+      <div className="navbar">
+        <h1 className="dorello">Dorello</h1>
+        <GreetingContainer />
+      </div>
     </header>
 
     <AuthRoute exact path="/login" component={LoginFormContainer} />

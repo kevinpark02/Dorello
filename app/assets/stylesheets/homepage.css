@@ -1,5 +1,30 @@
-/* Navbar */
+.hero {
+    background: #0079bf;
+}
 
+.dorello {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 20px;
+    
+}
+
+.navbar-auth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.navbar-auth li {
+    padding-right: 15px;
+}
 /* .navbar {
     display: flex;
     align-items: center;
