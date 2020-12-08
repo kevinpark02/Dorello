@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BoardIndex from './board_index';
-import { fetchBoards, deleteBoard, updateBoard } from '../../actions/board_actions';
+import { fetchBoards, deleteBoard } from '../../actions/board_actions';
 
 const mapStateToProps = (state) => {
     return({

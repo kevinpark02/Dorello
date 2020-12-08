@@ -23,7 +23,7 @@ class Api::BoardsController < ApplicationController
 
     def update
 
-        debugger
+        # debugger
 
         @board = current_user.boards.find_by(id: params[:id])
 
