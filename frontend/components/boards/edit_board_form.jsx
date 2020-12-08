@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class EditBoardForm extends React.Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class EditBoardForm extends React.Component {
                     </label>
                     <input type="submit" value="Edit Board Name"/>
                 </form>
+                <Link to="/feed">Back to Feed</Link>
             </div>
         )
     }
