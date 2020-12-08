@@ -6,6 +6,7 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 
 import BoardIndexContainer from "./boards/board_index_container";
+import BoardFormContainer from "./boards/create_board_form_container";
 
 import { Route } from 'react-router-dom';
 
@@ -20,6 +21,8 @@ const App = () => (
     <AuthRoute path="/signup" component={SignupFormContainer} />
 
     <Route path="/feed" component={BoardIndexContainer} />
+    <Route path="/feed" component={BoardFormContainer} />
+    
 
   </div>
 );

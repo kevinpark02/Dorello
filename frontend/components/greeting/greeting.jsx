@@ -9,8 +9,10 @@ const Greeting = ({currentUser, logout}) => {
         </div>
     ) : (
         <div>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Log In</Link>
+            <ul>
+                <Link to="/signup">Sign&nbsp;Up</Link>
+                <Link to="/login">Log&nbsp;In</Link>
+            </ul>
         </div>
     );
 
