@@ -8,11 +8,9 @@ const Greeting = ({currentUser, logout}) => {
             <button onClick={logout}>Log Out</button>
         </div>
     ) : (
-        <div>
-            <ul>
-                <Link to="/signup">Sign&nbsp;Up</Link>
-                <Link to="/login">Log&nbsp;In</Link>
-            </ul>
+        <div className="navbar-auth">
+            <li><Link className="text-white" to="/login">Log&nbsp;In</Link></li>
+            <li><Link className="btn-white text-blue" to="/signup">Sign&nbsp;Up</Link></li>
         </div>
     );
 

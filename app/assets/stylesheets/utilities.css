@@ -1,10 +1,11 @@
-/* .text-white {
+.text-white {
     color: #fff;
+    text-decoration: none;
 }
 
-.text-black {
+/* .text-black {
     color: #fff;
-}
+} */
 
 .text-blue {
     color: #0079bf;
@@ -14,9 +15,11 @@
     background-color: #fff;
     font-weight: 500;
     border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 7px;
 }
 
-.btn-green {
+/* .btn-green {
     background-color: #46B724;
     color: #fff;
 } */
