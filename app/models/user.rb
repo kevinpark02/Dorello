@@ -26,8 +26,9 @@ class User < ApplicationRecord
         class_name: :Board
 
     has_many :lists,
-        through: :boards,
-        source: :lists
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: :List
         
     # ASSOCIATIONS - END
     
