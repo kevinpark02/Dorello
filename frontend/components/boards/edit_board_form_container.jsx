@@ -4,7 +4,8 @@ import { fetchBoard, updateBoard } from '../../actions/board_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        board: state.entities.boards[ownProps.match.params.boardId]
+        board: state.entities.boards[ownProps.match.params.boardId],
+        errors: state.errors.board
     })
 }
 

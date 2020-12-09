@@ -21,6 +21,18 @@ class EditBoardForm extends React.Component {
         this.props.updateBoard(this.state)
     }
 
+    renderErrors(){
+        return(
+                <ul>
+                    {this.props.errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
     render() {
         const board = this.props.board;
         if (board === undefined) {
@@ -31,6 +43,7 @@ class EditBoardForm extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h2>Edit your board</h2>
+                    {this.renderErrors()}
                     <label>Board Name:
                         <input type="text"
                             value={this.state.board_name}
@@ -38,7 +51,7 @@ class EditBoardForm extends React.Component {
                     </label>
                     <input type="submit" value="Edit Board Name"/>
                 </form>
-                <Link to="/feed">Back to Feed</Link>
+                {/* <Link to="/feed">Back to Feed</Link> */}
             </div>
         )
     }

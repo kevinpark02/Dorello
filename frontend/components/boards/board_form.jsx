@@ -17,13 +17,25 @@ class BoardForm extends React.Component {
         this.props.createBoard(this.state)
     }
 
+    renderErrors(){
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
     render(){
         const board = this.state;
         return(
             <div className="modal board-create">
                 <form onSubmit={this.handleSubmit} className="board-create-form">
+                    {this.renderErrors()}
                     <h2>Create a New Board</h2>
-
                         <input type="text"
                                value={board.board_name}
                                placeholder="Add board name"

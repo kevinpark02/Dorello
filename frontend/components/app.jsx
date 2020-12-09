@@ -29,7 +29,7 @@ const App = () => (
     <ProtectedRoute path="/feed" component={BoardFormContainer} />
     <ProtectedRoute path="/feed" component={BoardIndexContainer} />
 
-    <ProtectedRoute path="/boards/:boardId" component={BoardShowContainer}/>
+    <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
     <ProtectedRoute path="/boards/:boardId/edit" component={EditBoardFormContainer} />
     
 
