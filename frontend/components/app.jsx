@@ -3,6 +3,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Route } from 'react-router-dom';
 
 import GreetingContainer from "./greeting/greeting_container";
+import GreetingSplash from "./greeting/greeting_splash"
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 
@@ -19,22 +20,7 @@ const App = () => (
         <h1 className="dorello">Dorello</h1>
         <GreetingContainer />
       </div>
-
-      <div className="content">
-        <div className="content-description">
-          <div className="content-text text-white">
-            <h1>Trello helps teams work more collaboratively and get more done.</h1>
-            <p>Trello's boards, lists, and cards enable teams to organize and prioritize projects in a fun, flexible, and rewarding way.</p>
-          </div>
-          <div className="content-img">
-            <img src={window.homepage_splash} alt="homepage_splash"/>
-          </div>
-        </div>
-      </div>
-
-      
-
-      
+      <AuthRoute exact path="/" component={GreetingSplash} />      
     </header>
 
     <AuthRoute exact path="/login" component={LoginFormContainer} />
