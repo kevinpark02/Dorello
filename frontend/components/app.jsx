@@ -19,6 +19,22 @@ const App = () => (
         <h1 className="dorello">Dorello</h1>
         <GreetingContainer />
       </div>
+
+      <div className="content">
+        <div class="content-description">
+          <div class="content-text text-white">
+            <h1>Trello helps teams work more collaboratively and get more done.</h1>
+            <p>Trello's boards, lists, and cards enable teams to organize and prioritize projects in a fun, flexible, and rewarding way.</p>
+          </div>
+          <div className="content-img">
+            <h1>placeholder for pic</h1>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
     </header>
 
     <AuthRoute exact path="/login" component={LoginFormContainer} />
