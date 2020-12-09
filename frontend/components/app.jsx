@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import GreetingContainer from "./greeting/greeting_container";
 import GreetingSplash from "./greeting/greeting_splash"
@@ -17,7 +17,7 @@ const App = () => (
   <div>
     <header className="hero">
       <div className="navbar">
-        <h1 className="dorello">Dorello</h1>
+        <Link to="/" className="dorello-link"><h1 className="dorello">Dorello</h1></Link>
         <GreetingContainer />
       </div>
       <AuthRoute exact path="/" component={GreetingSplash} />      

@@ -9,8 +9,8 @@ const Greeting = ({currentUser, logout}) => {
         </div>
     ) : (
         <div className="navbar-auth">
-            <li><Link className="text-white" to="/login">Log&nbsp;In</Link></li>
-            <li><Link className="btn-white text-blue" to="/signup">Sign&nbsp;Up</Link></li>
+            <li><Link className="text-white login-btn" to="/login">Log&nbsp;In</Link></li>
+            <li><Link className="btn-white text-blue signup-btn" to="/signup">Sign&nbsp;Up</Link></li>
         </div>
     );
 
