@@ -5,8 +5,8 @@ const GreetingSplash = () => {
     <div className="content">
         <div className="content-description">
             <div className="content-text text-white">
-                <h1>Dorello helps teams work more collaboratively and get more done.</h1>
-                <p>Trello's boards, lists, and cards enable teams to organize and prioritize projects in a fun, flexible, and rewarding way.</p>
+                <h1 className="text-white">Dorello helps teams work more collaboratively and get more done.</h1>
+                <p className="text-white">Trello's boards, lists, and cards enable teams to organize and prioritize projects in a fun, flexible, and rewarding way.</p>
             </div>
             <div className="content-img">
                 <img src={window.homepage_splash} alt="homepage_splash"/>

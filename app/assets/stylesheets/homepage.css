@@ -3,6 +3,11 @@
     background-size: cover;
 }
 
+.home-logo {
+    width: 9%;
+    padding-top: 10px;
+}
+
 .dorello {
     font-family: 'Pacifico', cursive;
     color: #fff;

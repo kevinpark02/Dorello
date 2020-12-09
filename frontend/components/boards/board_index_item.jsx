@@ -16,7 +16,7 @@ class BoardIndexItem extends React.Component {
         ) : null
 
         const editButton = authorId === board.author_id ? (
-            <Link to={`/boards/${board.id}/edit`} className="btn-blue">Edit</Link>
+            <Link to={`/boards/${board.id}/edit`} className="btn-blue">Edit Name</Link>
         ) : null
 
         return(
