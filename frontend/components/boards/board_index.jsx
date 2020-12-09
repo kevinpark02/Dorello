@@ -16,9 +16,9 @@ class BoardIndex extends React.Component {
         const deleteBoard = this.props.deleteBoard;
 
         return(
-            <div>
-                <h2>Personal Board</h2>
-                <ul>
+            <div className="board-cont">
+                <h4 className="personal-board-title">Personal Board</h4>
+                <ul className="personal-board-cont">
                     {boards.map(board => {
                         if(board.author_id === authorId) {
                             return(
@@ -30,9 +30,9 @@ class BoardIndex extends React.Component {
                         }
                     })}
                 </ul>
-                
-                <h2>Look what other projects people are working on</h2>
-                <ul>
+
+                <h4 className="others-board-title">See other users' boards</h4>
+                <ul className="others-board-cont">
                     {boards.map(board => {
                         if(board.author_id !== authorId) {
                             return(

@@ -20,14 +20,15 @@ class BoardForm extends React.Component {
     render(){
         const board = this.state;
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="modal board-create">
+                <form onSubmit={this.handleSubmit} className="board-create-form">
                     <h2>Create a New Board</h2>
-                    <label>Board Name:
+
                         <input type="text"
                                value={board.board_name}
+                               placeholder="Add board name"
                                onChange={this.update('board_name')}/>
-                    </label>
+                    
                     <input type="submit" value="Create Board"/>
                 </form>
             </div>

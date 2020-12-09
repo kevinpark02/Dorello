@@ -12,18 +12,20 @@ class BoardIndexItem extends React.Component {
         const authorId = this.props.authorId;
 
         const deleteButton = authorId === board.author_id ? (
-            <button onClick={() => deleteBoard(board.id)}>Delete</button>
+            <button className="btn-red" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
         const editButton = authorId === board.author_id ? (
-            <Link to={`/boards/${board.id}/edit`}>Edit Board Name</Link>
+            <Link to={`/boards/${board.id}/edit`} className="btn-blue">Edit</Link>
         ) : null
 
         return(
-            <div>
-                <Link to={`/boards/${board.id}`}><li>{board.board_name}</li></Link>
-                {editButton}
-                {deleteButton}
+            <div className="indiv-board-cont">
+                <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
+                <ul className="indiv-board-btn-cont">
+                    <li>{editButton}</li>
+                    <li>{deleteButton}</li>
+                </ul>
             </div>
         )
     }

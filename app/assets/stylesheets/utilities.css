@@ -25,3 +25,20 @@
     border-radius: 5px;
     border-color: #c4c4c4;
 }
+
+.btn-red {
+    background-color: #ff6262;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 15px;
+}
+
+.btn-blue {
+    background-color: #0079bf;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
