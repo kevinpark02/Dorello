@@ -4,6 +4,8 @@
 
 .session-form-cont {
     background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
@@ -19,12 +21,16 @@
     margin-top: 50px;
     padding: 20px 35px;
 
-    border: 1px solid black;
+    border: 1px solid #f2f2f2;
+    box-shadow: #808080 4px 5px;
+    border-radius: 5px;
+    
 }
 
 .session-form-title {
     margin: 0 auto;
     margin-top: 25px;
+    color: #585858;
 }
 
 .session-form input {

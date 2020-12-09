@@ -22,7 +22,6 @@ class BoardIndexItem extends React.Component {
         return(
             <div>
                 <Link to={`/boards/${board.id}`}><li>{board.board_name}</li></Link>
-                {/* <li>{board.board_name}</li> */}
                 {editButton}
                 {deleteButton}
             </div>

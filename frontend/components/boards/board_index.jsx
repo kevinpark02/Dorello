@@ -17,20 +17,53 @@ class BoardIndex extends React.Component {
 
         return(
             <div>
-                <h2>All Boards</h2>
+                <h2>Personal Board</h2>
                 <ul>
                     {boards.map(board => {
-                        return(
-                            <BoardIndexItem board={board}
-                                            key={board.id}
-                                            deleteBoard={deleteBoard}
-                                            authorId={authorId}/>
-                        )
+                        if(board.author_id === authorId) {
+                            return(
+                                <BoardIndexItem board={board}
+                                                key={board.id}
+                                                deleteBoard={deleteBoard}
+                                                authorId={authorId}/>
+                            )
+                        }
                     })}
                 </ul>
                 
+                <h2>Look what other projects people are working on</h2>
+                <ul>
+                    {boards.map(board => {
+                        if(board.author_id !== authorId) {
+                            return(
+                                <BoardIndexItem board={board}
+                                                key={board.id}
+                                                deleteBoard={deleteBoard}
+                                                authorId={authorId}/>
+                            )
+                        }
+                    })}
+                </ul>
             </div>
         )
+
+
+        // return(
+        //     <div>
+        //         <h2>All Boards</h2>
+        //         <ul>
+        //             {boards.map(board => {
+        //                 return(
+        //                     <BoardIndexItem board={board}
+        //                                     key={board.id}
+        //                                     deleteBoard={deleteBoard}
+        //                                     authorId={authorId}/>
+        //                 )
+        //             })}
+        //         </ul>
+                
+        //     </div>
+        // )
     }
 }
 

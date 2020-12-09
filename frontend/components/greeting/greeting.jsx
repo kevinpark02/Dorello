@@ -15,11 +15,9 @@ const Greeting = ({currentUser, logout}) => {
     );
 
     return(
-        <header>
             <div>
                 {greeting}
             </div>
-        </header>
     )
 }
 
