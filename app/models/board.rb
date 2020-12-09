@@ -16,4 +16,9 @@ class Board < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
+    has_many :lists,
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: :List
+
 end
