@@ -17,7 +17,7 @@ class BoardIndex extends React.Component {
 
         return(
             <div className="board-cont">
-                <h4 className="personal-board-title">Personal Board</h4>
+                <h4 className="personal-board-title"><span><i class="fas fa-user fa-lg"></i></span><span>&nbsp;</span>&nbsp; Personal Board</h4>
                 <ul className="personal-board-cont">
                     {boards.map(board => {
                         if(board.author_id === authorId) {
@@ -31,7 +31,7 @@ class BoardIndex extends React.Component {
                     })}
                 </ul>
 
-                <h4 className="others-board-title">See other users' boards</h4>
+                <h4 className="others-board-title"><span><i class="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>
                 <ul className="others-board-cont">
                     {boards.map(board => {
                         if(board.author_id !== authorId) {
