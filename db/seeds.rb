@@ -15,5 +15,6 @@ u2 = User.create(email: 'carol.h.yang@gmail.com', password: 'dorellotest2')
 u3 = User.create(email: 'kara.kara@gmail.com', password: 'dorellotest3')
 
 # Board seed
-b1 = Board.create(board_name: "December Todos", author_id: 7);
-b2 = Board.create(board_name: "Trailer for Winter Quarter", author_id: 8)
+b1 = Board.create(board_name: "December Todos", author_id: u1.id);
+b2 = Board.create(board_name: "Trailer for Winter Quarter", author_id: u2.id)
+b2 = Board.create(board_name: "Please Work", author_id: u3.id)
