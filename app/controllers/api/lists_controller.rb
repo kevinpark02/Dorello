@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
     before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
 
-    def create
+    def create #this works
         @list = List.new(list_params)
 
         if @list.save
@@ -11,17 +11,17 @@ class Api::ListsController < ApplicationController
         end
     end
 
-    def update
+    def update #this works
         @list = List.find_by(id: params[:id])
-
-        if @list && @list.update(list_params)
+        
+        if @list && ((@list.board_id.to_s) == list_params[:board_id]) && @list.update(list_params)
             render :show
         else
             render json: @list.errors.full_messages, status: 422
         end
     end
 
-    def destroy
+    def destroy #this works
         @list = List.find_by(id: params[:id])
 
         if @list && @list.destroy
