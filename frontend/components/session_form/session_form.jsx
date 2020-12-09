@@ -38,29 +38,30 @@ class SessionForm extends React.Component {
   render() {
       const formType = this.props.formType;
       const linkType = formType === "signup" ? "login" : "signup"
+      const sessionHeading = formType === "Sign up" ? "Sign up for your account" : "Log in to Trello"
 
       return(
           <div>
               {this.renderErrors()}
-              <form onSubmit={this.handleSubmit} className="session-form">
-                <h2>Please {formType} or&nbsp;
-                    <span><Link to={`/${linkType}`}>{linkType}</Link></span>
-                </h2>
-        
-                      <input type="text"
-                             value={this.state.username}
-                             placeholder="Enter email"
-                             onChange={this.handleInput('email')}/>
-                
-
-                  
-                      <input type="password"
-                             value={this.state.password}
-                             placeholder="Enter password"
-                             onChange={this.handleInput('password')}/>
+              <form onSubmit={this.handleSubmit} className="session-form-cont">
+                  <div className="session-form">
+                        <h4 className="session-form-title">{sessionHeading}</h4>
             
-    
-                  <input type="submit" value={formType} className ="submit-btn"/>
+                        <input type="text"
+                                value={this.state.username}
+                                placeholder="Enter email"
+                                onChange={this.handleInput('email')}/>
+                    
+
+                    
+                        <input type="password"
+                                value={this.state.password}
+                                placeholder="Enter password"
+                                onChange={this.handleInput('password')}/>
+                
+        
+                        <input type="submit" value={formType} className ="btn-green"/>
+                  </div>
               </form>
           </div>
       )

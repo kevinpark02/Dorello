@@ -2,14 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.session-form{
+.session-form-cont {
+    background: #f2f2f2;
+    height: 100vh;
+}
+
+.session-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
+
+    background: #fff;
+
+    width: 30%;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px 35px;
+
+    border: 1px solid black;
+}
+
+.session-form-title {
+    margin: 0 auto;
+    margin-top: 25px;
 }
 
 .session-form input {
-    width: 25%;
-    margin: 0 auto;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.session-form input {
+    margin-top: 20px;
 }

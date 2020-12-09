@@ -19,7 +19,9 @@
     padding: 10px 7px;
 }
 
-/* .btn-green {
+.btn-green {
     background-color: #46B724;
     color: #fff;
-} */
+    border-radius: 5px;
+    border-color: #c4c4c4;
+}
