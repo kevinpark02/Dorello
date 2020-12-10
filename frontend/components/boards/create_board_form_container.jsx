@@ -1,4 +1,4 @@
-import { connect, connnect } from 'react-redux';
+import { connect } from 'react-redux';
 import BoardForm from './board_form';
 import { createBoard } from '../../actions/board_actions';
 

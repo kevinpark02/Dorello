@@ -1,5 +1,6 @@
 import React from 'react';
 import ListIndexItem from "./list_index_item";
+import ListFormContainer from "./create_list_form_container";
 
 class ListIndex extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class ListIndex extends React.Component {
                         )
                     }
                 })}
+                {/* <ListFormContainer boardId={board.id}/> */}
             </ul>
         )
     }
