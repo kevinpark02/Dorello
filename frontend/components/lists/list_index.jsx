@@ -16,21 +16,23 @@ class ListIndex extends React.Component {
         
         return(
             <ul>
-                <h4>{board.board_name}</h4>
-                {lists.map(list => {
-                    if(list.board_id === board.id) {
-                        return(
-                            <ul>
-                                <ListIndexItem list={list}
-                                               key={list.id}
-                                               createList={createList}
-                                               updateList={updateList}
-                                               deleteList={deleteList}/>
-                            </ul>
-                        )
-                    }
-                })}
-                <ListFormContainer boardId={board.id}/>
+                <h4 className="list-board-title">{board.board_name}</h4>
+                <div className="lists-cont">
+                    {lists.map(list => {
+                        if(list.board_id === board.id) {
+                            return(
+                                <ul className="list-wrapper">
+                                    <ListIndexItem list={list}
+                                                key={list.id}
+                                                createList={createList}
+                                                updateList={updateList}
+                                                deleteList={deleteList}/>
+                                </ul>
+                            )
+                        }
+                    })}
+                    <ListFormContainer boardId={board.id}/>
+                </div>
             </ul>
         )
     }

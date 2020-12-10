@@ -1,3 +1,57 @@
 // Place all the styles related to the api/lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list-board-title {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.lists-cont {
+    display: flex;
+    overflow-x: hidden;
+    margin-left: 25px;
+}
+
+.list-wrapper {
+    // display: flex;
+    // justify-content: space-between;
+    margin-right: 30px;
+    width: 250px;
+    height: auto;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 60px;
+    background: #f2f2f2;
+    border: 1px #d2d2d2 solid;
+    border-radius: 5px;;
+}
+
+.list-top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-top-content:first-child {
+    font-size: 17px;
+}
+
+.list-delete-btn {
+    border: black 1px solid;
+    border-radius: 5px;
+    margin-right: 10px;
+    background: #ff6262;
+    color: #fff;
+    font-size: 15px;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.list-top-content button:focus {
+    outline: 0;
+}
