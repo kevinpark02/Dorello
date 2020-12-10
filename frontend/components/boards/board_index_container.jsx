@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return({
         boards: Object.values(state.entities.boards),
         authorId: state.session.id
+        // users: state.entities.users
     })
 }
 

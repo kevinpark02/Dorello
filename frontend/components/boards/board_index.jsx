@@ -15,6 +15,7 @@ class BoardIndex extends React.Component {
         const boards = this.props.boards;
         const authorId = this.props.authorId;
         const deleteBoard = this.props.deleteBoard;
+        // const users = this.props.users;
 
         return(
             <div className="board-cont">

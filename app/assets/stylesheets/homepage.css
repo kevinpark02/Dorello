@@ -31,6 +31,26 @@
     
 }
 
+.navbar-logged {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logged p {
+    padding-right: 15px;
+    font-size: 15px
+}
+
+.navbar-logged button {
+    margin-right: 15px;
+    border: none;
+    font-size: 16px;
+}
+
+.navbar-logged button:focus{
+    outline: 0;
+}
+
 .login-btn:hover {
     text-decoration: underline;
     text-decoration-color: #fff;

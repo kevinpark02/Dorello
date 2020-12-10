@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
   render() {
       const formType = this.props.formType;
       const linkType = formType === "signup" ? "login" : "signup"
-      const sessionHeading = formType === "Sign up" ? "Sign up for your account" : "Log in to Trello"
+      const sessionHeading = formType === "Sign up" ? "Sign up for your account" : "Log in to Dorello"
 
       return(
           <div>
