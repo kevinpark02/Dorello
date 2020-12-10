@@ -4,7 +4,7 @@ import { createList, updateList, deleteList } from "../../actions/list_actions"
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        boardId: state.entities.boards[ownProps.match.params.boardId].id,
+        board: state.entities.boards[ownProps.match.params.boardId],
         lists: Object.values(state.entities.lists)
     })
 }

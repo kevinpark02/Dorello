@@ -17,11 +17,7 @@ class BoardShow extends React.Component {
         //     return null
         // }
 
-        return(
-            <div>
-                {board.board_name}
-            </div>
-        )
+        return null
     }
 }
 

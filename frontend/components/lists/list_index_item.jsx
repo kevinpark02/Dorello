@@ -8,7 +8,7 @@ class ListIndexItem extends React.Component {
     render() {
         const list = this.props.list;
         return(
-            <li>{list.title}</li>
+            <li key={list.id}>{list.title}</li>
         )
     }
 }
