@@ -12,6 +12,8 @@ import BoardFormContainer from "./boards/create_board_form_container";
 import EditBoardFormContainer from "./boards/edit_board_form_container";
 import BoardShowContainer from "./boards/board_show_container";
 
+import ListIndexContainer from "./lists/list_index_container";
+
 
 const App = () => (
   <div>
@@ -30,6 +32,7 @@ const App = () => (
     <ProtectedRoute path="/feed" component={BoardIndexContainer} />
 
     <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
+    <ProtectedRoute exact path="/boards/:boardId" component={ListIndexContainer}/>
     <ProtectedRoute path="/boards/:boardId/edit" component={EditBoardFormContainer} />
     {/* <ProtectedRoute path="/feed" component={EditBoardFormContainer} /> */}
     
