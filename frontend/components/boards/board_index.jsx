@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardIndexItem from './board_index_item';
+import BoardFormContainer from './create_board_form_container';
 
 class BoardIndex extends React.Component {
     constructor(props) {
@@ -25,10 +26,11 @@ class BoardIndex extends React.Component {
                                 <BoardIndexItem board={board}
                                                 key={board.id}
                                                 deleteBoard={deleteBoard}
-                                                authorId={authorId}/>
+                                                authorId={authorId}/>                            
                             )
                         }
                     })}
+                    <BoardFormContainer />
                 </ul>
 
                 <h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>

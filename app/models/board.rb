@@ -18,6 +18,6 @@ class Board < ApplicationRecord
 
     has_many :lists,
         primary_key: :id,
-        foreign_key: :creator_id,
+        foreign_key: :board_id,
         class_name: :List
 end

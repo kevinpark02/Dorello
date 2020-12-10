@@ -1,4 +1,5 @@
 import { RECEIVE_LIST, REMOVE_LIST } from '../actions/list_actions';
+import { RECEIVE_BOARD } from "../actions/board_actions";
 
 const listsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,6 +12,8 @@ const listsReducer = (state = {}, action) => {
         case REMOVE_LIST:
             delete nextState[action.listId];
             return nextState;
+        case RECEIVE_BOARD:
+            return Object.assign(nextState, action.board.lists)
         default:
             return state;
     }

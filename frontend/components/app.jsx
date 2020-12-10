@@ -26,11 +26,12 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-    <ProtectedRoute path="/feed" component={BoardFormContainer} />
+    {/* <ProtectedRoute path="/feed" component={BoardFormContainer} /> */}
     <ProtectedRoute path="/feed" component={BoardIndexContainer} />
 
     <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
     <ProtectedRoute path="/boards/:boardId/edit" component={EditBoardFormContainer} />
+    {/* <ProtectedRoute path="/feed" component={EditBoardFormContainer} /> */}
     
 
   </div>

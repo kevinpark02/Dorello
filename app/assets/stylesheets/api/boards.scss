@@ -11,15 +11,22 @@
 .board-create-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background: #525252;
     border: 1px black solid;
-    width: 30%;
-    margin: 0 auto;
-    position: fixed;
-    top: 60px; //! use 60px;
-    left: 35%;
+    // width: 30%;
+    width: 250px;
+    height: 110px;
+    border-radius: 5px;
+    margin-top: 20px;
+    // position: fixed;
+    // top: 115.5px;
+    // left: 570px;
+    // margin: 0 auto;
+    // position: fixed;
+    // top: 60px; //! use 60px;
+    // left: 35%;
 }
 
 .personal-board-title{
@@ -33,6 +40,7 @@
 .personal-board-cont{
     display: flex;
     flex-wrap: wrap;
+    border: 1px black solid;
 }
 
 .indiv-board-btn-cont {
