@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditBoardFormContainer from "./edit_board_form_container";
 
 
 class BoardIndexItem extends React.Component {
@@ -24,6 +25,7 @@ class BoardIndexItem extends React.Component {
             <div className="indiv-board-cont">
                 <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
                 <ul className="indiv-board-btn-cont">
+                    
                     <li>{editButton}</li>
                     <li>{deleteButton}</li>
                 </ul>

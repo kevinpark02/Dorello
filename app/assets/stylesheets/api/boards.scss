@@ -14,12 +14,13 @@
     justify-content: space-around;
     align-items: center;
     background: #525252;
-    border: 1px black solid;
+    border-style: outset;
     // width: 30%;
     width: 250px;
     height: 110px;
-    border-radius: 5px;
+    border-radius: 7px;
     margin-top: 20px;
+    padding-bottom: 6px;
     // position: fixed;
     // top: 115.5px;
     // left: 570px;
@@ -27,6 +28,21 @@
     // position: fixed;
     // top: 60px; //! use 60px;
     // left: 35%;
+}
+
+.board-create-form:hover {
+    background: #bababa;
+    border-style: inset;
+}
+
+.board-create-title {
+    color: #fff;
+}
+
+.board-create-input {
+    text-align: center;
+    font-size: 15px;
+    height: 30px;
 }
 
 .personal-board-title{
@@ -40,7 +56,7 @@
 .personal-board-cont{
     display: flex;
     flex-wrap: wrap;
-    border: 1px black solid;
+    // border: 1px black solid;
 }
 
 .indiv-board-btn-cont {
