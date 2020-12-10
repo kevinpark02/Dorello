@@ -1,4 +1,5 @@
 import React from 'react';
+import EditListFormContainer from "./edit_list_form_container";
 
 class ListIndexItem extends React.Component {
     constructor(props) {
@@ -14,12 +15,15 @@ class ListIndexItem extends React.Component {
 
     render() {
         const list = this.props.list;
+        const board = this.props.board;
         return(
-            <ul className="list-top-content">
-                <li key={list.id}>{list.title}</li> 
-                {/* Figure out how to give a unique key different from above */}
-                <button className="list-delete-btn" onClick={this.handleClick}>X</button>
-            </ul>
+            <div className="list-wrapper">
+                <div className="list-top-content">
+                    <li>{list.title}</li> 
+                    <button className="list-delete-btn" onClick={this.handleClick}>X</button>
+                </div>
+                <EditListFormContainer list={list}/>
+            </div>
         )
     }
 }

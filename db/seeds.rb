@@ -8,6 +8,7 @@
 
 User.delete_all
 Board.delete_all
+List.delete_all
 
 # User seed
     u1 = User.create(email: 'kevin.park02@gmail.com', password: 'dorellotest1')

@@ -12,8 +12,9 @@ class Api::ListsController < ApplicationController
     end
 
     def update #this works
+        # debugger
         @list = List.find_by(id: params[:id])
-        
+        # debugger
         if @list && ((@list.board_id.to_s) == list_params[:board_id]) && @list.update(list_params)
             render :show
         else

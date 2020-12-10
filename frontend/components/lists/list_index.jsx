@@ -21,13 +21,12 @@ class ListIndex extends React.Component {
                     {lists.map(list => {
                         if(list.board_id === board.id) {
                             return(
-                                <ul className="list-wrapper">
                                     <ListIndexItem list={list}
                                                 key={list.id}
                                                 createList={createList}
                                                 updateList={updateList}
-                                                deleteList={deleteList}/>
-                                </ul>
+                                                deleteList={deleteList}
+                                                board={board}/>
                             )
                         }
                     })}
