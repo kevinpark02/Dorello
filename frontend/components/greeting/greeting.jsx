@@ -5,7 +5,7 @@ const Greeting = ({currentUser, logout}) => {
     const greeting = currentUser ? (
         <div className="navbar-logged">
             <p className="text-white">Hello, {currentUser.email}</p>
-            <button className="btn-white text-blue signup-btn" onClick={logout}>Log Out</button>
+            <button className="btn-white text-blue" onClick={logout}>Log Out</button>
         </div>
     ) : (
         <div className="navbar-auth">

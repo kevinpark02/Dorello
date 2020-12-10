@@ -45,6 +45,7 @@
     margin-right: 15px;
     border: none;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .navbar-logged button:focus{

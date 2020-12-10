@@ -30,7 +30,7 @@ class ListIndex extends React.Component {
                         )
                     }
                 })}
-                {/* <ListFormContainer boardId={board.id}/> */}
+                <ListFormContainer boardId={board.id}/>
             </ul>
         )
     }
