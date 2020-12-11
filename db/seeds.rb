@@ -51,14 +51,14 @@ Card.delete_all
         l12 = List.create(title: "Done", board_id: b4.id, creator_id: u3.id)
     
     # Board 5
-        l7 = List.create(title: "Todo", board_id: b5.id, creator_id: u3.id)
-        l8 = List.create(title: "Doing", board_id: b5.id, creator_id: u3.id)
-        l9 = List.create(title: "Done", board_id: b5.id, creator_id: u3.id)
+        l13 = List.create(title: "Todo", board_id: b5.id, creator_id: u3.id)
+        l14 = List.create(title: "Doing", board_id: b5.id, creator_id: u3.id)
+        l15 = List.create(title: "Done", board_id: b5.id, creator_id: u3.id)
     
     # Board 6
-        l10 = List.create(title: "Todo", board_id: b6.id, creator_id: u1.id);
-        l11 = List.create(title: "Doing", board_id: b6.id, creator_id: u2.id);
-        l12 = List.create(title: "Done", board_id: b6.id, creator_id: u3.id);
+        l16 = List.create(title: "Todo", board_id: b6.id, creator_id: u1.id);
+        l17 = List.create(title: "Doing", board_id: b6.id, creator_id: u2.id);
+        l18 = List.create(title: "Done", board_id: b6.id, creator_id: u3.id);
 
 # Card seed
     # List 1
@@ -67,6 +67,9 @@ Card.delete_all
     # List 2
         c3 = Card.create(name: "Wedding Video", description: "Finale Song", list_id: l2.id, creator_id: u3.id)
         c4 = Card.create(name: "Christmas Gifts", description: "Chou boys & Chang Girls", list_id: l2.id, creator_id: u1.id)
+        # List 7
+        c5 = Card.create(name: "Baby Crib", description: "For Kara", list_id: l7.id, creator_id: u1.id)
+    
         
         
 
