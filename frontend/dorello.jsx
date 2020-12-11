@@ -10,7 +10,7 @@ import configureStore from './store/store';
     // import { fetchBoards } from "./actions/board_actions";
     // import { receiveAllBoards } from "./actions/board_actions";
     // import { createList, updateList, deleteList } from "./actions/list_actions";
-    import {createCard, updateCard, deleteCard } from "./actions/card_actions"; 
+    // import {createCard, updateCard, deleteCard } from "./actions/card_actions"; 
 // FOR TESTING - END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // window.updateList = updateList;
         // window.deleteList = deleteList;
 
-        window.createCard = createCard;
-        window.updateCard = updateCard;
-        window.deleteCard = deleteCard;
+        // window.createCard = createCard;
+        // window.updateCard = updateCard;
+        // window.deleteCard = deleteCard;
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;

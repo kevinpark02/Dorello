@@ -1,5 +1,7 @@
 import React from 'react';
 import EditListFormContainer from "./edit_list_form_container";
+import CardIndexContainer from "../cards/card_index_container";
+import CardFormContainer from "../cards/create_card_form_container";
 
 class ListIndexItem extends React.Component {
     constructor(props) {
@@ -23,6 +25,8 @@ class ListIndexItem extends React.Component {
                     <button className="list-delete-btn" onClick={this.handleClick}>X</button>
                 </div>
                 <EditListFormContainer list={list}/>
+                <CardIndexContainer list={list}/>
+                <CardFormContainer list={list}/>
             </div>
         )
     }

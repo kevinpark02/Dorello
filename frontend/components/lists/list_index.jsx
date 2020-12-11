@@ -2,6 +2,7 @@ import React from 'react';
 import ListIndexItem from "./list_index_item";
 import ListFormContainer from "./create_list_form_container";
 
+
 class ListIndex extends React.Component {
     constructor(props) {
         super(props)
