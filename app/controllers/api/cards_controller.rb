@@ -13,7 +13,8 @@ class Api::CardsController < ApplicationController
 
     def update
         @card = Card.find_by(id: params[:id])
-        if @card && ((@card.list_id.tos) == card_params[:list_id]) && @card.update(card_params)
+        debugger
+        if @card && ((@card.list_id.to_s) == card_params[:list_id]) && ((@card.creator_id.to_s) == card_params[:creator_id]) && @card.update(card_params)
             render :show
         else
             render json: @card.errors.full_messages, status: 422
@@ -21,7 +22,7 @@ class Api::CardsController < ApplicationController
     end
 
     def destroy
-        @card = List.find_by(id: params[:id])
+        @card = Card.find_by(id: params[:id])
         if @card && @card.destroy
             render json: ["You have succesffully deleted your card"]
         end
