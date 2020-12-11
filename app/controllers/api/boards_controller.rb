@@ -10,6 +10,7 @@ class Api::BoardsController < ApplicationController
     def show #this works
         # @board = Board.find_by(id: params[:id])
         @board = Board.includes(:lists).find_by(id: params[:id])
+        # @card = @board.lists.includes(:cards) 
     end
 
     def create #this works
