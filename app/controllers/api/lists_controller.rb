@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-    before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
+    before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def create #this works
         @list = List.new(list_params)

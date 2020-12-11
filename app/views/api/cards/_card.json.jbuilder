@@ -1,0 +1,1 @@
+json.extract! card, :id, :name, :list_id, :creator_id

@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Card < ApplicationRecord
-    validates :name, :list_id, :creator_id
+    validates :name, :list_id, :creator_id, presence: true
 
     belongs_to :list,
         primary_key: :id,
