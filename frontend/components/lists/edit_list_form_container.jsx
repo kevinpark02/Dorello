@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     // console.log(list.title)
     // console.log(list.board_id)
     return({
-        list: { id: list.id, title: list.title, board_id: list.board_id, creator_id: creatorId }
+        list: { id: list.id, title: "", board_id: list.board_id, creator_id: creatorId }
     })
 }
 

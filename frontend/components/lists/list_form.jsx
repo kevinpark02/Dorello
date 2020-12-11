@@ -20,13 +20,14 @@ class ListForm extends React.Component {
     render() {
         const list = this.state;
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                        <input type="text"
+            <div className="list-form-cont">
+                <form className="list-form" onSubmit={this.handleSubmit}>
+                    <input className="list-form-input" 
+                            type="text"
                             value={list.title}
                             placeholder="Add anoter list"
                             onChange={this.update('title')}/>
-                        <input type="submit" value="Add List"/>
+                    <input className="btn-green list-form-btn" type="submit" value="Add List"/>
                 </form>
             </div>
         )

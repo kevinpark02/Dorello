@@ -22,12 +22,13 @@ class EditListForm extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text"
+                <form className="list-edit-form" onSubmit={this.handleSubmit}>
+                    <input className="list-edit-input-field"
+                           type="text"
                            value={list.title}
                            placeholder="Edit list title"
                            onChange={this.update('title')}/>
-                    <input type="submit" value="Edit"/>
+                    <input className="btn-blue" type="submit" value="Edit"/>
                 </form>
             </div>
         )
