@@ -12,11 +12,11 @@ export const updateCard = (card) => {
     return $.ajax({
         url: `/api/cards/${card.id}`,
         method: "PATCH",
-        data: {board}
+        data: {card}
     })
 } //this works
 
-export const deletecard = (cardId) => {
+export const deleteCard = (cardId) => {
     return $.ajax({
         url: `/api/cards/${cardId}`,
         method: "DELETE" 
