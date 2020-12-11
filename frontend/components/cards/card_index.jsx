@@ -7,7 +7,7 @@ class CardIndex extends React.Component {
     }
 
     render() {
-        // const board = this.props.board;
+        const board = this.props.board;
         const list = this.props.list;
         const cards = this.props.cards;
 
@@ -17,7 +17,8 @@ class CardIndex extends React.Component {
                     if(card.list_id === list.id){
                         return(
                             <CardIndexItem card={card}
-                                           key={card.id}/>
+                                           key={card.id}
+                                           board={board}/>
                         )
                     }
                 })}

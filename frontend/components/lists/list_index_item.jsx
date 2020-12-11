@@ -25,7 +25,8 @@ class ListIndexItem extends React.Component {
                     <button className="list-delete-btn" onClick={this.handleClick}>X</button>
                 </div>
                 <EditListFormContainer list={list}/>
-                <CardIndexContainer list={list}/>
+                <CardIndexContainer list={list}
+                                    board={board}/>
                 <CardFormContainer list={list}/>
             </div>
         )

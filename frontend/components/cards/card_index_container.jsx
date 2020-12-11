@@ -4,6 +4,7 @@ import { createCard, updateCard, deleteCard } from "../../actions/card_actions"
 
 const mapStateToProps = (state, ownProps) => {
     return({
+        board: ownProps.board,
         list: ownProps.list,
         cards: Object.values(state.entities.cards)
     })
