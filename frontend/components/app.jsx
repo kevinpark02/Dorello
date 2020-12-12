@@ -13,7 +13,7 @@ import EditBoardFormContainer from "./boards/edit_board_form_container";
 import BoardShowContainer from "./boards/board_show_container";
 
 import ListIndexContainer from "./lists/list_index_container";
-// import EditCardFormContainer from "./cards/edit_card_form_container";
+import EditCardFormContainer from "./cards/edit_card_form_container";
 
 
 const App = () => (
@@ -34,7 +34,7 @@ const App = () => (
     <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
     <ProtectedRoute exact path="/boards/:boardId" component={ListIndexContainer}/>
     {/* <ProtectedRoute path="/boards/:boardId/edit" component={EditBoardFormContainer}/> */}
-    {/* <ProtectedRoute path="/boards/:boardId/:cardId/edit" component={EditCardFormContainer}/> */}
+    <ProtectedRoute path="/boards/:boardId/:cardId/edit" component={EditCardFormContainer}/>
     
 
   </div>
