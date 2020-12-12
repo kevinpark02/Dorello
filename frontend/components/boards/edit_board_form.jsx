@@ -42,12 +42,13 @@ class EditBoardForm extends React.Component {
         // debugger
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    {this.renderErrors()}
-                    <input type="text"
-                        value={this.state.board_name}
-                        placeholder="Edit board..."
-                        onChange={this.update('board_name')}/>
+                <form className="edit-board-form-cont" onSubmit={this.handleSubmit}>
+                    {/* {this.renderErrors()} */}
+                    <input  className="edit-board-form-input"
+                            type="text"
+                            value={this.state.board_name}
+                            placeholder="Edit board..."
+                            onChange={this.update('board_name')}/>
                     <input className="btn-blue" type="submit" value="Edit"/>
                 </form>
                 {/* <Link to="/feed">Back to Feed</Link> */}

@@ -90,3 +90,15 @@
 .indiv-board {
     padding: 5px 10px;
 }
+
+.edit-board-form-cont {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.edit-board-form-input {
+    padding-left: 5px;
+    width: 175px;
+    font-size: 15px;
+}
