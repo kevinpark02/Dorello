@@ -14,6 +14,9 @@ class ListIndex extends React.Component {
         const createList = this.props.createList;
         const updateList = this.props.updateList;
         const deleteList = this.props.deleteList;
+        if (board === undefined) {
+            return null;
+        }
         
         return(
             <ul>

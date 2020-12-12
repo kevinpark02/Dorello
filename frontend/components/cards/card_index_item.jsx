@@ -11,7 +11,7 @@ class CardIndexItem extends React.Component {
         const card = this.props.card;
 
         return(
-            <Link to={`/boards/${board.id}/${card.name}/edit`}><li className="card-container">{card.name}</li></Link>
+            <Link to={`/boards/${board.id}/${card.id}/edit`}><li className="card-container">{card.name}</li></Link>
         )
     }
 }

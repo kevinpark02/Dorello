@@ -60,16 +60,22 @@
 }
 
 .indiv-board-btn-cont {
-    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
 }
 
 .indiv-board-btn-cont li {
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 .others-board-cont {
     display: flex;
     flex-wrap: wrap;
+}
+
+.board-delete-btn {
+    padding-top: 10px;
 }
 
 .indiv-board-cont {

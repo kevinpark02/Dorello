@@ -18,16 +18,16 @@ class BoardIndexItem extends React.Component {
             <button className="btn-red" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
-        const editButton = authorId === board.author_id ? (
-            <Link to={`/boards/${board.id}/edit`} className="btn-blue">Edit Name</Link>
+        const edit = authorId === board.author_id ? (
+            <EditBoardFormContainer board={board}/>
         ) : null
 
         return(
             <div className="indiv-board-cont">
                 <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
                 <ul className="indiv-board-btn-cont">
-                    <li>{editButton}</li>
-                    <li>{deleteButton}</li>
+                    <li>{edit}</li>
+                    <li className="board-delete-btn">{deleteButton}</li>
                 </ul>
             </div>
         )

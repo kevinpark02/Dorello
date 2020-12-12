@@ -9,7 +9,8 @@ class EditBoardForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBoard(this.props.match.params.boardId)
+        // this.props.fetchBoard(this.props.boardId)
+        this.props.fetchBoards();
     }
 
     update(field) {
@@ -35,21 +36,19 @@ class EditBoardForm extends React.Component {
 
     render() {
         const board = this.props.board;
-        if (board === undefined) {
-            return null
-        }
+        // if (board === undefined) {
+        //     return null
+        // }
         // debugger
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>Edit your board</h2>
                     {this.renderErrors()}
-                    <label>Board Name:
-                        <input type="text"
-                            value={this.state.board_name}
-                            onChange={this.update('board_name')}/>
-                    </label>
-                    <input type="submit" value="Edit Board Name"/>
+                    <input type="text"
+                        value={this.state.board_name}
+                        placeholder="Edit board..."
+                        onChange={this.update('board_name')}/>
+                    <input className="btn-blue" type="submit" value="Edit"/>
                 </form>
                 {/* <Link to="/feed">Back to Feed</Link> */}
             </div>

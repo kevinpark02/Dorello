@@ -13,7 +13,7 @@ json.lists do
 end
 
 json.cards do 
-    @board_c.cards.each do |card|
+    @board.cards.each do |card|
         json.set! card.id do
             json.extract! card, :id, :name, :description, :due_date, :list_id, :creator_id
         end
