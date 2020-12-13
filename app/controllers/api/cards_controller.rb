@@ -13,7 +13,7 @@ class Api::CardsController < ApplicationController
 
     def update
         @card = Card.find_by(id: params[:id])
-        debugger
+        # debugger
         if @card && ((@card.list_id.to_s) == card_params[:list_id]) && ((@card.creator_id.to_s) == card_params[:creator_id]) && @card.update(card_params)
             render :show
         else
@@ -31,6 +31,6 @@ class Api::CardsController < ApplicationController
     private
 
     def card_params
-        params.require(:card).permit(:name, :list_id, :creator_id)
+        params.require(:card).permit(:name, :description, :due_date, :list_id, :creator_id)
     end
 end
