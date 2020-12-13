@@ -1,5 +1,5 @@
 import React from 'react';
-import EditBoardForm from '../boards/edit_board_form';
+
 
 class EditCardForm extends React.Component {
     constructor(props) {
@@ -33,6 +33,10 @@ class EditCardForm extends React.Component {
                     <h3 className="card-edit-name"><i className="fas fa-desktop"></i> &nbsp; {card.name}</h3>
 
                     <h3 className="card-edit-due"><i className="far fa-calendar-alt"></i> &nbsp; Due Date</h3>
+                    <input className="card-edit-due-input"
+                           type="date"
+                           value={card.due_date}
+                           onChange={this.update('due_date')}/>
                     
                     <h3 className="card-edit-description-heading"><i className="fas fa-stream"></i> &nbsp; Description</h3>
                     <textarea className="card-edit-description"

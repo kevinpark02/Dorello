@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     const creatorId = state.session.id;
 
     return({
-        card: { name: "", description: "", due_date: null, list_id: listId, creator_id: creatorId  }
+        card: { name: "", description: "", due_date: "", list_id: listId, creator_id: creatorId  }
     })
 }
 

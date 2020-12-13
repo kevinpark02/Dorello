@@ -62,13 +62,13 @@ Card.delete_all
 
 # Card seed
     # List 1
-        c1 = Card.create(name: "Buy Toilet Papers", description: "Costco", list_id: l1.id, creator_id: u1.id)
-        c2 = Card.create(name: "Buy Water", description: "Albertson's", list_id: l1.id, creator_id: u2.id)
+        c1 = Card.create(name: "Buy Toilet Papers", description: "Costco", due_date: "", list_id: l1.id, creator_id: u1.id)
+        c2 = Card.create(name: "Buy Water", description: "Albertson's", due_date: "", list_id: l1.id, creator_id: u2.id)
     # List 2
-        c3 = Card.create(name: "Wedding Video", description: "Finale Song", list_id: l2.id, creator_id: u3.id)
-        c4 = Card.create(name: "Christmas Gifts", description: "Chou boys & Chang Girls", list_id: l2.id, creator_id: u1.id)
+        c3 = Card.create(name: "Wedding Video", description: "Finale Song", due_date: "", list_id: l2.id, creator_id: u3.id)
+        c4 = Card.create(name: "Christmas Gifts", description: "Chou boys & Chang Girls", due_date: "", list_id: l2.id, creator_id: u1.id)
         # List 7
-        c5 = Card.create(name: "Baby Crib", description: "For Kara", list_id: l7.id, creator_id: u1.id)
+        c5 = Card.create(name: "Baby Crib", description: "For Kara", due_date: "", list_id: l7.id, creator_id: u1.id)
     
         
         
