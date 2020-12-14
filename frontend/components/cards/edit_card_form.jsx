@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentIndexContainer from "../comments/comment_index_container";
 
 class EditCardForm extends React.Component {
     constructor(props) {
@@ -44,6 +44,8 @@ class EditCardForm extends React.Component {
                               onChange={this.update('description')}/>
 
                     <input className="btn-green card-edit-btn" type="submit" value="Save"/>
+
+                    <CommentIndexContainer />
                     
                 </form>
             </div>
