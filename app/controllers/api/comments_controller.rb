@@ -1,0 +1,39 @@
+class Api::CommentsController < ApplicationController
+    before_action :require_logged_in, only: [:create, :update, :destroy]
+
+    def create
+        @comment = Comment.new(comment_params)
+
+        if @comment.save
+            render :show
+        else
+            render json: @comment.errors.full_messages, status: 422
+        end
+    end
+
+    def update
+        @comment = current_user.comments.find_by(id: params[:id])
+
+        if @comment && 
+            ((@comment.card_id.to_s) == comment_params[:comment_id]) && 
+            ((@comment.creator_id.to_s) == current_user.id) &&
+            @comment.update(comment_params)
+        else
+            render json: @comment.errors.full_messages, status: 422
+        end
+    end
+
+    def destroy
+        @comment = current_user.comments.find_by(id: params[:id])
+        
+        if @comment && @comment.destroy
+            render json: ["You have successfully deleted your comment"]
+        end
+    end
+
+    private
+
+    def comment_params
+        params.require(:comment).permit(:body, :card_id, :creator_id)
+    end
+end

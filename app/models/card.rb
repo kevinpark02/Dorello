@@ -25,7 +25,7 @@ class Card < ApplicationRecord
         class_name: :User
 
     has_many :comments,
-        primary_id: :id,
+        primary_key: :id,
         foreign_key: :card_id,
         class_name: :Comment
 end

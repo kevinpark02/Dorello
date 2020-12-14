@@ -10,6 +10,7 @@ User.delete_all
 Board.delete_all
 List.delete_all
 Card.delete_all
+Comment.delete_all
 
 # User seed
     u1 = User.create(email: 'kevin.park02@gmail.com', password: 'dorellotest1')
@@ -67,10 +68,19 @@ Card.delete_all
     # List 2
         c3 = Card.create(name: "Wedding Video", description: "Finale Song", due_date: "", list_id: l2.id, creator_id: u3.id)
         c4 = Card.create(name: "Christmas Gifts", description: "Chou boys & Chang Girls", due_date: "", list_id: l2.id, creator_id: u1.id)
-        # List 7
+    # List 7
         c5 = Card.create(name: "Baby Crib", description: "For Kara", due_date: "", list_id: l7.id, creator_id: u1.id)
     
+# Comment seed
+    # Card 1
+        co1 = Comment.create(body: "Hey, I didn't see them at Costco", card_id: c1.id, creator_id: u1.id)
+        co2 = Comment.create(body: "Should we check target then?", card_id: c1.id, creator_id: u2.id)
+        co3 = Comment.create(body: "Albertson's might be cheaper", card_id: c1.id, creator_id: u3.id)
+    # Card 5
+        co4 = Comment.create(body: "Is this for me?", card_id: c5.id, creator_id: u3.id)
+        co5 = Comment.create(body: "Yup, it's for you. Read the description", card_id: c5.id, creator_id: u2.id)
+
         
-        
+
 
 

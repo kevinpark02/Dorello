@@ -26,6 +26,6 @@ class Board < ApplicationRecord
         source: :cards
 
     has_many :comments,
-        through: :author,
+        through: :cards,
         source: :comments
 end

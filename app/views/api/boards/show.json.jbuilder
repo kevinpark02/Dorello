@@ -19,3 +19,11 @@ json.cards do
         end
     end
 end
+
+json.comments do 
+    @board.comments.each do |comment|
+        json.set! comment.id do
+            json.extract! comment, :id, :body, :card_id, :creator_id
+        end
+    end
+end
