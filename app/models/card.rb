@@ -23,4 +23,9 @@ class Card < ApplicationRecord
         primary_key: :id,
         foreign_key: :creator_id,
         class_name: :User
+
+    has_many :comments,
+        primary_id: :id,
+        foreign_key: :card_id,
+        class_name: :Comment
 end

@@ -29,6 +29,11 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :creator_id,
         class_name: :List
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: :Comment
         
     # ASSOCIATIONS - END
     

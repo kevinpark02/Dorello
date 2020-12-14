@@ -24,4 +24,8 @@ class Board < ApplicationRecord
     has_many :cards,
         through: :lists,
         source: :cards
+
+    has_many :comments,
+        through: :author,
+        source: :comments
 end
