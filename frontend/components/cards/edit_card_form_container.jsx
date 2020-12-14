@@ -1,13 +1,11 @@
 import { connect } from 'react-redux';
 import EditCardForm from './edit_card_form';
 import { updateCard, deleteCard } from '../../actions/card_actions';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
-    const board = state.entities.boards[ownProps.match.params.boardId]
-    
     return({
-        card: state.entities.cards[ownProps.match.params.cardId],
-        board: board
+        card: state.entities.cards[ownProps.cardId],
     })
 }
 
@@ -18,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditCardForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditCardForm))

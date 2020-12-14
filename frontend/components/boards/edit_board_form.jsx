@@ -36,14 +36,12 @@ class EditBoardForm extends React.Component {
 
     render() {
         const board = this.props.board;
-        // if (board === undefined) {
-        //     return null
-        // }
-        // debugger
+        if (board === undefined) {
+            return null
+        }
         return(
             <div>
                 <form className="edit-board-form-cont" onSubmit={this.handleSubmit}>
-                    {/* {this.renderErrors()} */}
                     <input  className="edit-board-form-input"
                             type="text"
                             value={this.state.board_name}
@@ -51,7 +49,6 @@ class EditBoardForm extends React.Component {
                             onChange={this.update('board_name')}/>
                     <input className="btn-blue" type="submit" value="Edit"/>
                 </form>
-                {/* <Link to="/feed">Back to Feed</Link> */}
             </div>
         )
     }

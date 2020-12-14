@@ -1,41 +1,42 @@
-// import React from 'react';
-// import { closeModal } from "../actions/modal_actions";
-// import { connect } from "react-redux";
-// import EditBoardFormContainer from "../components/boards/edit_board_form_container";
+import React from 'react';
+import { closeModal } from "../actions/modal_actions";
+import { connect } from "react-redux";
+import EditCardFormContainer from "../components/cards/edit_card_form_container";
 
-// function Modal({modal, closeModal}) {
-//     if (!modal) {
-//         return null;
-//     }
+function Modal({modal, cardId, closeModal}) {
+    if (!modal) {
+        return null;
+    }
 
-//     let component;
-//     switch (modal) {
-//         case 'edit':
-//             component = <EditBoardFormContainer/>
-//             break;
-//         default:
-//             return null
-//     }
+    let component;
+    switch (modal) {
+        case 'edit':
+            component = <EditCardFormContainer cardId={cardId}/>;
+            break;
+        default:
+            return null
+    }
 
-//     return (
-//         <div className="modal-background" onClick={closeModal}>
-//             <div className="modal-child" onClick={e => e.stopPropagation()}>
-//                 {component}
-//             </div>
-//         </div>
-//     )
-// }
+    return (
+        <div className="modal-background" onClick={closeModal}>
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
+                {component}
+            </div>
+        </div>
+    )
+}
 
-// const mapStateToProps = state =>{
-//     return {
-//         modal: state.ui.modal
-//     }
-// }
+const mapStateToProps = state =>{
+    return {
+        modal: state.ui.modal[0],
+        cardId: state.ui.modal[1]
+    }
+}
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         closeModal: () => dispatch(closeModal())
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal())
+    }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Modal)
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)

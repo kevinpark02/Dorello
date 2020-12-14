@@ -10,6 +10,7 @@ class CardIndex extends React.Component {
         const board = this.props.board;
         const list = this.props.list;
         const cards = this.props.cards;
+        const openModal = this.props.openModal
 
         return(
             <ul>
@@ -18,7 +19,8 @@ class CardIndex extends React.Component {
                         return(
                             <CardIndexItem card={card}
                                            key={card.id}
-                                           board={board}/>
+                                           board={board}
+                                           openModal={openModal}/>
                         )
                     }
                 })}

@@ -19,10 +19,9 @@ class EditCardForm extends React.Component {
     }
 
     render() {
-        const board = this.props.board
         const card = this.state;
 
-        if (board === undefined) {
+        if (card === undefined) {
             return null;
         }
 
