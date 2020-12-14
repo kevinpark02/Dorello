@@ -9,9 +9,13 @@ class CardIndexItem extends React.Component {
     render() {
         const board = this.props.board;
         const card = this.props.card;
+        const due = card.due_date ? <li className="card-due-display">Due: {card.due_date}</li> : null;
 
         return(
-            <Link to={`/boards/${board.id}/${card.id}/edit`}><li className="card-container">{card.name}</li></Link>
+            <div className="card-container">
+                <Link to={`/boards/${board.id}/${card.id}/edit`}><li>{card.name}</li></Link>
+                {due}
+            </div>
         )
     }
 }

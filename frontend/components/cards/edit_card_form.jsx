@@ -45,7 +45,7 @@ class EditCardForm extends React.Component {
                               onChange={this.update('description')}/>
 
                     <input className="btn-green card-edit-btn" type="submit" value="Save"/>
-            
+                    
                 </form>
             </div>
         )
