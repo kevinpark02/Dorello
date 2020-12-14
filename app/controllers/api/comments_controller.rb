@@ -13,10 +13,10 @@ class Api::CommentsController < ApplicationController
 
     def update
         @comment = current_user.comments.find_by(id: params[:id])
-
+        # debugger
         if @comment && 
-            ((@comment.card_id.to_s) == comment_params[:comment_id]) && 
-            ((@comment.creator_id.to_s) == current_user.id) &&
+            ((@comment.card_id.to_s) == comment_params[:card_id]) && 
+            ((@comment.creator_id.to_s) == current_user.id.to_s) &&
             @comment.update(comment_params)
         else
             render json: @comment.errors.full_messages, status: 422
@@ -25,7 +25,7 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         @comment = current_user.comments.find_by(id: params[:id])
-        
+
         if @comment && @comment.destroy
             render json: ["You have successfully deleted your comment"]
         end
