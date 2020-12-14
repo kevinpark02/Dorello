@@ -74,11 +74,13 @@ Comment.delete_all
 # Comment seed
     # Card 1
         co1 = Comment.create(body: "Hey, I didn't see them at Costco", card_id: c1.id, creator_id: u1.id)
-        co2 = Comment.create(body: "Should we check target then?", card_id: c1.id, creator_id: u2.id)
-        co3 = Comment.create(body: "Albertson's might be cheaper", card_id: c1.id, creator_id: u3.id)
+        co2 = Comment.create(body: "Should we check target then?", card_id: c1.id, creator_id: u1.id)
+        co3 = Comment.create(body: "Albertson's might be cheaper? I don't know I'm writing all this just to check css... I hope this wraps... but what if I write more. would this overflow?", card_id: c1.id, creator_id: u1.id)
+    # Card 3
+        co4 = Comment.create(body: "Can Matt work on this?", card_id: c3.id, creator_id: u2.id) 
     # Card 5
-        co4 = Comment.create(body: "Is this for me?", card_id: c5.id, creator_id: u3.id)
-        co5 = Comment.create(body: "Yup, it's for you. Read the description", card_id: c5.id, creator_id: u2.id)
+        co5 = Comment.create(body: "Is this for me?", card_id: c5.id, creator_id: u3.id)
+        co6 = Comment.create(body: "Yup, it's for you. Read the description", card_id: c5.id, creator_id: u2.id)
 
         
 

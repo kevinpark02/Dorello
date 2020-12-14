@@ -4,7 +4,9 @@ import { createComment, updateComment, deleteComment } from "../../actions/comme
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        
+        currentCard: ownProps.currentCard,
+        comments: Object.values(state.entities.comments),
+        commentors: state.entities.users
     })
 }
 

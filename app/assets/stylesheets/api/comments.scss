@@ -1,3 +1,46 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-section {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 15px;
+
+}
+
+.comment-container {
+    // border: 1px black solid;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px
+}
+
+.comment-author {
+    margin-bottom: 5px;
+}
+
+.comment-body {
+    border: 3px #989898 solid;
+    background: #fff;
+    height: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 50px;
+    padding-left: 10px;
+    border-style: outset;
+    border-radius: 5px;
+    padding: 10px 0;
+    padding-left: 7px;
+}
+
+.comment-heading {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}

@@ -45,7 +45,7 @@ class EditCardForm extends React.Component {
 
                     <input className="btn-green card-edit-btn" type="submit" value="Save"/>
 
-                    <CommentIndexContainer />
+                    <CommentIndexContainer currentCard={card}/>
                     
                 </form>
             </div>
