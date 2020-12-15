@@ -56,7 +56,7 @@ class EditCardForm extends React.Component {
                               onChange={this.update('description')}/>
                     <div className="card-edit-btns">
                         <input className="btn-green card-edit-btn" type="submit" value="Save"/>
-                        <button className="btn-red" onClick={this.handleClick}>Delete</button>
+                        <button className="btn-red card-delete-btn" onClick={this.handleClick}>Delete</button>
                     </div>
                 </form>
                     <CommentIndexContainer currentCard={card}/>

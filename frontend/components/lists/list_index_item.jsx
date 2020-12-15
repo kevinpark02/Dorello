@@ -22,7 +22,7 @@ class ListIndexItem extends React.Component {
             <div className="list-wrapper">
                 <div className="list-top-content">
                     <li>{list.title}</li> 
-                    <button className="list-delete-btn" onClick={this.handleClick}>X</button>
+                    <button className="list-delete-btn" onClick={this.handleClick}>Delete</button>
                 </div>
                 <EditListFormContainer list={list}/>
                 <CardIndexContainer list={list}

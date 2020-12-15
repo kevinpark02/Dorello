@@ -60,44 +60,14 @@
 .navbar-auth li {
     padding-right: 15px;
 }
-/* .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #0079bf;
-    width: 100%;
-    height: 96.5px;
-    position: fixed;
-    top: 0px;
-    padding: 0 28px;
-}
-
-.navbar a{
-    padding: 10px 10px;
-    margin: 0 5px;
-    font-size: 20px;
- }
-
-.navbar ul {
-    display: flex;
-}
-
-.navbar ul li:first-child a:hover {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 2px #fff solid;
-}
-
-.logo img {
-    width: 11.7%;
-
-} */
 
 /* Content */
 
 .content {
     background-color: #0079bf;
+    width: 100vw;
     /* border: 1px black solid; */
+    margin: 0 auto;
 }
 
 .content-description {

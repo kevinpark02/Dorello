@@ -26,6 +26,7 @@
     border-color: #c4c4c4;
     padding: 3px 5px;
     font-size: 15px;
+    border: 1px #525252 solid;
 }
 
 .btn-red {
