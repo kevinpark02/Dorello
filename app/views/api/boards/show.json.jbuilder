@@ -23,7 +23,8 @@ end
 json.comments do 
     @board.comments.each do |comment|
         json.set! comment.id do
-            json.extract! comment, :id, :body, :card_id, :creator_id
+            # json.extract! comment, :id, :body, :card_id, :creator_id
+            json.partial! 'api/comments/comment', comment: comment
         end
     end
 end

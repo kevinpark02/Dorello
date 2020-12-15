@@ -44,3 +44,12 @@
     margin-bottom: 15px;
     font-weight: 700;
 }
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form-btn {
+    width: 10%;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentIndexItem from "./comment_index_item";
+import CreateCommentContainer from "./create_comment_container";
 
 class CommentIndex extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class CommentIndex extends React.Component {
         return(
             <div>
                 <h3 className="comment-heading"><i className="far fa-comments"></i> &nbsp; Comments</h3>
+                <CreateCommentContainer currentCard={currentCard}/>
                 <ul className="comment-section">
                     {comments.map(comment => {
                         if(comment.card_id === currentCard.id) {

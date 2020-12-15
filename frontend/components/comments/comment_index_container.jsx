@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     return({
         currentCard: ownProps.currentCard,
         comments: Object.values(state.entities.comments),
-        commentors: state.entities.users
+        // commentors: state.entities.users
     })
 }
 
