@@ -18,6 +18,7 @@ class Api::CommentsController < ApplicationController
             ((@comment.card_id.to_s) == comment_params[:card_id]) && 
             ((@comment.creator_id.to_s) == current_user.id.to_s) &&
             @comment.update(comment_params)
+            render :show
         else
             render json: @comment.errors.full_messages, status: 422
         end

@@ -73,8 +73,19 @@
     border-top-left-radius: 0px;
 }
 
-.comment-delete-btn {
-    width: 75px;
+.comment-btns {
+    display: flex;
     margin-left: 50px;
     margin-top: 12px;
 }
+
+.comment-delete-btn {
+    width: 75px;
+    margin-left: 10px;
+    // margin-top: 12px;
+}
+
+// .comment-edit-btn {
+//     margin-top: 12px;
+//     margin-left: 50px;
+// }

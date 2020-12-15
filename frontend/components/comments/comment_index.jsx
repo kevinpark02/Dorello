@@ -12,6 +12,7 @@ class CommentIndex extends React.Component {
         const currentCard = this.props.currentCard;
         const currentUser = this.props.currentUser;
         const deleteComment = this.props.deleteComment;
+        const updateComment = this.props.updateComment;
 
         return(
             <div className="comment-outer-container">
@@ -24,7 +25,8 @@ class CommentIndex extends React.Component {
                                 <CommentIndexItem comment={comment}
                                                   currentUser={currentUser}
                                                   key={comment.id}
-                                                  deleteComment={deleteComment}/>
+                                                  deleteComment={deleteComment}
+                                                  updateComment={updateComment}/>
                             )
                         }
                     })}
