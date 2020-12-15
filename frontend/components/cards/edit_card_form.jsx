@@ -7,11 +7,17 @@ class EditCardForm extends React.Component {
 
         this.state = this.props.card;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     update(field) {
         // debugger
         return e => this.setState({[field]: e.target.value})
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        this.props.deleteCard(this.props.card.id)
     }
 
     handleSubmit(e) {
@@ -48,8 +54,10 @@ class EditCardForm extends React.Component {
                               placeholder="Add a more detailed description..."
                               value={card.description}
                               onChange={this.update('description')}/>
-
-                    <input className="btn-green card-edit-btn" type="submit" value="Save"/>
+                    <div className="card-edit-btns">
+                        <input className="btn-green card-edit-btn" type="submit" value="Save"/>
+                        <button className="btn-red" onClick={this.handleClick}>Delete</button>
+                    </div>
                 </form>
                     <CommentIndexContainer currentCard={card}/>
             </div>

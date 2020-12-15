@@ -10,7 +10,7 @@ const cardsReducer = (state = {}, action) => {
             nextState[action.card.id] = action.card
             return nextState;
         case REMOVE_CARD:
-            delete nexstState[action.cardId];
+            delete nextState[action.cardId];
             return nextState;
         case RECEIVE_BOARD:
             return Object.assign(nextState, action.board.cards)
