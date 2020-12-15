@@ -37,14 +37,15 @@ class SessionForm extends React.Component {
 
   render() {
       const formType = this.props.formType;
-      const linkType = formType === "signup" ? "login" : "signup"
+      const linkType = formType === "Sign up" ? "login" : "signup"
+      const otherLinkName = linkType === "login" ? "Have an account already? Please log in" : "Sign up for an account"
       const sessionHeading = formType === "Sign up" ? "Sign up for your account" : "Log in to Dorello"
 
       return(
           <div>
-              {this.renderErrors()}
               <form onSubmit={this.handleSubmit} className="session-form-cont">
                   <div className="session-form">
+                      {this.renderErrors()}
                         <h4 className="session-form-title">{sessionHeading}</h4>
             
                         <input type="text"
@@ -61,6 +62,8 @@ class SessionForm extends React.Component {
                 
         
                         <input type="submit" value={formType} className ="btn-green"/>
+
+                        <Link className="session-form-alt" to={`/${linkType}`}>{otherLinkName}</Link>
                   </div>
               </form>
           </div>
