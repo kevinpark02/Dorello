@@ -9,11 +9,12 @@ class CommentIndex extends React.Component {
 
     render() {
         const comments = this.props.comments;
-        const commentors = this.props.commentors;
         const currentCard = this.props.currentCard;
+        const currentUser = this.props.currentUser;
+        const deleteComment = this.props.deleteComment;
 
         return(
-            <div>
+            <div className="comment-outer-container">
                 <h3 className="comment-heading"><i className="far fa-comments"></i> &nbsp; Comments</h3>
                 <CreateCommentContainer currentCard={currentCard}/>
                 <ul className="comment-section">
@@ -21,8 +22,9 @@ class CommentIndex extends React.Component {
                         if(comment.card_id === currentCard.id) {
                             return(
                                 <CommentIndexItem comment={comment}
-                                                commentors={commentors}
-                                                key={comment.id}/>
+                                                  currentUser={currentUser}
+                                                  key={comment.id}
+                                                  deleteComment={deleteComment}/>
                             )
                         }
                     })}

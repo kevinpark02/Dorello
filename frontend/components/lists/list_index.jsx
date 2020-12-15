@@ -19,7 +19,7 @@ class ListIndex extends React.Component {
         }
         
         return(
-            <ul>
+            <ul className="list-display-container">
                 <h4 className="list-board-title">{board.board_name}</h4>
                 <div className="lists-cont">
                     {lists.map(list => {

@@ -50,6 +50,31 @@
     flex-direction: column;
 }
 
+.comment-form textarea {
+    height: 60px;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-bottom: 25px;
+}
+
 .comment-form-btn {
     width: 10%;
+}
+
+.comment-outer-container {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    background: #fafafa;
+    border-radius: 5px;
+    border-top: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.comment-delete-btn {
+    width: 75px;
+    margin-left: 50px;
+    margin-top: 12px;
 }

@@ -25,9 +25,13 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         @comment = current_user.comments.find_by(id: params[:id])
-
-        if @comment && @comment.destroy
+  
+        if @comment && 
+            ((@comment.creator_id.to_s) == current_user.id.to_s) && 
+            @comment.destroy
             render json: ["You have successfully deleted your comment"]
+        else
+            render json: ["You cannot delete someone else's comment"]
         end
     end
 

@@ -29,7 +29,12 @@ class EditCardForm extends React.Component {
             <div className="card-edit-container">
                 <form className="card-edit-form" onSubmit={this.handleSubmit}>
                     
-                    <h3 className="card-edit-name"><i className="fas fa-desktop"></i> &nbsp; {card.name}</h3>
+                    <h3 className="card-edit-name">
+                        <i className="fas fa-desktop"></i> &nbsp; 
+                        <input type="text" 
+                               value={card.name} 
+                               onChange={this.update('name')}/>
+                    </h3>
 
                     <h3 className="card-edit-due"><i className="far fa-calendar-alt"></i> &nbsp; Due Date</h3>
                     <input className="card-edit-due-input"

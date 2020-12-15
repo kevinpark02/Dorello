@@ -48,9 +48,14 @@
     width: 35%;
 }
 
+.card-edit-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .card-edit-container{
     margin-top: 35px;
-    // border: 1px red solid;
 }
 
 .card-edit-form {
@@ -59,18 +64,25 @@
     height: auto;
     width: 820px;
     justify-content: center;
-    border: black 1px solid;
     margin: 0 auto;
     border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     padding-top: 20px;
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
     background: #fafafa;
+    border-bottom: 0px;
 }
 
 .card-edit-name {
     margin-bottom: 25px;
+}
+
+.card-edit-name input {
+    font-size: 18.72px;
+    border: 0px;
 }
 
 .card-edit-description-heading {
