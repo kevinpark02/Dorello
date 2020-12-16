@@ -6,9 +6,14 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: this.props.errors
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+      this.props.removeSessionErrors();
   }
 
   handleInput(type) {
@@ -24,14 +29,17 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
+      
+      const errors = this.props.errors;
+
       return(
-          <ul>
-              {this.props.errors.map((error, i) => (
-                  <li key={i}>
-                      {error}
-                  </li>
-              ))}
-          </ul>
+            <ul>
+                {errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
       )
    }
 
