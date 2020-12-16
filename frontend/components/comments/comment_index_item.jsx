@@ -39,9 +39,8 @@ class CommentIndexItem extends React.Component {
             (<li className="comment-author">{comment.email}</li>)
 
         const commentDisplay = (comment.creator_id === currentUser) ?
-            (<form onSubmit={this.handleSubmit}>
-                <input className="comment-body"
-                       type="text"
+            (<form className="comment-edit-cont" onSubmit={this.handleSubmit}>
+                <textarea className="comment-body"
                        value={comment.body}
                        onChange={this.update('body')}/>
                 <div className="comment-btns">
@@ -58,11 +57,8 @@ class CommentIndexItem extends React.Component {
         return(
             <div className="comment-container">
                 {author}
-                {/* <li className="comment-author">{comment.email} wrote...</li> */}
                 {commentDisplay}
-                {/* <li className="comment-body">{comment.body}</li> */}
-                {/* <button className="btn-red comment-delete-btn" onClick={this.handleClick}>Delete</button> */}
-                {/* {button} */}
+
             </div>
         )   
     }

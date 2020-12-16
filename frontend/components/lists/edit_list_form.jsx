@@ -28,7 +28,7 @@ class EditListForm extends React.Component {
                            value={list.title}
                            placeholder="Edit list title"
                            onChange={this.update('title')}/>
-                    <input className="btn-blue" type="submit" value="Edit"/>
+                    <input className="btn-blue list-edit-btn" type="submit" value="Edit"/>
                 </form>
             </div>
         )

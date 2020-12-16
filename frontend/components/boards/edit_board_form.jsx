@@ -47,7 +47,7 @@ class EditBoardForm extends React.Component {
                             value={this.state.board_name}
                             placeholder="Edit board..."
                             onChange={this.update('board_name')}/>
-                    <input className="btn-blue" type="submit" value="Edit"/>
+                    <input className="btn-blue edit-board-btn" type="submit" value="Edit"/>
                 </form>
             </div>
         )

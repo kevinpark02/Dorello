@@ -29,7 +29,7 @@
     height: auto;
     padding-left: 15px;
     padding-top: 5px;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
     background: #f2f2f2;
     border: 1px #d2d2d2 solid;
     border-radius: 5px;
@@ -37,7 +37,6 @@
 
 .list-top-content {
     display: flex;
-    flex-shrink: 0;
     height: auto;
     justify-content: space-between;
     align-items: center;
@@ -70,8 +69,8 @@
     background: #f5f5f5;
     border: 1px #d5d5d5, solid;
     border-style: outset;
-    width: 250px;
-    height: 75px;
+    width: 300px;
+    height: 100px;
     border-radius: 7px;
     padding-bottom: 6px;
 }
@@ -84,14 +83,16 @@
 }
 
 .list-form-input {
+    height: 25px;
     font-size: 15px;
     margin-top: 5px;
     padding-left: 5px;
 }
 
 .list-form-btn {
-    margin-top: 5px;
+    margin-top: 15px;
     width: 75px;
+    cursor: pointer;
 }
 
 .list-edit-form {
@@ -108,4 +109,8 @@
 .list-edit-input-field {
     padding-left: 5px;
     font-size: 15px;
+}
+
+.list-edit-btn {
+    cursor: pointer;
 }

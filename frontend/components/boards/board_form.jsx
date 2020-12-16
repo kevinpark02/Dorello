@@ -42,7 +42,7 @@ class BoardForm extends React.Component {
                                placeholder="Add board name"
                                onChange={this.update('board_name')}/>
                     
-                    <input className="btn-green" type="submit" value="Create Board"/>
+                    <input className="btn-green board-create-btn" type="submit" value="Create Board"/>
                 </form>
             </div>
         )

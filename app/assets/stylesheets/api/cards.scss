@@ -45,7 +45,8 @@
 
 .card-form-btn {
     margin-top: 7px;
-    width: 35%;
+    width: 85px;
+    cursor: pointer;
 }
 
 .card-edit-container {
@@ -112,11 +113,13 @@
 
 .card-edit-btn {
     width: 75px;
+    cursor: pointer;
 }
 
 .card-delete-btn {
     width: 75px;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .card-edit-due-input {

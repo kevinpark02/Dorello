@@ -48,6 +48,10 @@
     height: 30px;
 }
 
+.board-create-btn {
+    cursor: pointer;
+}
+
 .personal-board-title{
     margin-top: 20px;
 }
@@ -78,7 +82,8 @@
 }
 
 .board-delete-btn {
-    padding-top: 10px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .indiv-board-cont {
@@ -104,4 +109,13 @@
     padding-left: 5px;
     width: 175px;
     font-size: 15px;
+}
+
+.edit-board-btn {
+    cursor: pointer;
+}
+
+.board-author {
+    text-decoration: underline;
+    // color: #0079bf;
 }

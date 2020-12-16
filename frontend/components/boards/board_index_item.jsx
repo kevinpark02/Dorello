@@ -14,8 +14,13 @@ class BoardIndexItem extends React.Component {
         const authorId = this.props.authorId;
         // const boardAuthor = this.props.users[board.author_id].email;
 
+        const boardDisplay = authorId === board.author_id ? (
+            <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
+        ) : 
+        (<Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name} by <span className="board-author">{board.email}</span></li></Link>)
+
         const deleteButton = authorId === board.author_id ? (
-            <button className="btn-red" onClick={() => deleteBoard(board.id)}>Delete</button>
+            <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
         const edit = authorId === board.author_id ? (
@@ -24,10 +29,11 @@ class BoardIndexItem extends React.Component {
 
         return(
             <div className="indiv-board-cont">
-                <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
+                {boardDisplay}
+                {/* <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link> */}
                 <ul className="indiv-board-btn-cont">
                     <li>{edit}</li>
-                    <li className="board-delete-btn">{deleteButton}</li>
+                    <li>{deleteButton}</li>
                 </ul>
             </div>
         )
