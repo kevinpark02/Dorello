@@ -9,10 +9,11 @@ const mapStateToProps = (state, ownProps) => {
     })
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return({
         updateCard: card => dispatch(updateCard(card)),
-        deleteCard: cardId => dispatch(deleteCard(cardId))
+        deleteCard: cardId => dispatch(deleteCard(cardId)),
+        closeModal: ownProps.closeModal
     })
 }
 

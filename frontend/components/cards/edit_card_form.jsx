@@ -17,12 +17,14 @@ class EditCardForm extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.deleteCard(this.props.card.id)
+        this.props.deleteCard(this.props.card.id);
+        this.props.closeModal();
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateCard(this.state)
+        this.props.updateCard(this.state);
+        this.props.closeModal();
     }
 
     render() {

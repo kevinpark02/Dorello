@@ -11,7 +11,8 @@ function Modal({modal, cardId, closeModal}) {
     let component;
     switch (modal) {
         case 'edit':
-            component = <EditCardFormContainer cardId={cardId}/>;
+            component = <EditCardFormContainer cardId={cardId}
+                                               closeModal={closeModal}/>;
             break;
         default:
             return null
