@@ -11,6 +11,7 @@ class EditBoardForm extends React.Component {
     componentDidMount() {
         // this.props.fetchBoard(this.props.boardId)
         this.props.fetchBoards();
+        this.setState({ ['board_name']: "" })
     }
 
     update(field) {
@@ -20,6 +21,7 @@ class EditBoardForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateBoard(this.state)
+        this.setState({ ['board_name']: "" })
     }
 
     renderErrors(){

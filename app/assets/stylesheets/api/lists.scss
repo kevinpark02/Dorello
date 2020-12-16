@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .list-display-container {
-    background-image: url("https://source.unsplash.com/daily?sky");
+    background-image: url("https://source.unsplash.com/daily?ocean");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,6 +32,7 @@
 
 .lists-cont {
     display: flex;
+    align-items: flex-start;
     overflow-y: auto;
     overflow-x: auto;
     height: auto;

@@ -15,6 +15,7 @@ class ListForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createList(this.state)
+        this.setState({ ['title']: "" })
     }
 
     render() {
@@ -25,7 +26,7 @@ class ListForm extends React.Component {
                     <input className="list-form-input" 
                             type="text"
                             value={list.title}
-                            placeholder="Add anoter list"
+                            placeholder="Add another list"
                             onChange={this.update('title')}/>
                     <input className="btn-green list-form-btn" type="submit" value="Add List"/>
                 </form>

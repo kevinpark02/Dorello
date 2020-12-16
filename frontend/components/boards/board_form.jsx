@@ -14,7 +14,8 @@ class BoardForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createBoard(this.state)
+        this.props.createBoard(this.state);
+        this.setState({ ['board_name']: "" })
     }
 
     renderErrors(){
