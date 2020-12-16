@@ -58,12 +58,15 @@
 }
 
 .navbar-auth li {
-    padding-right: 15px;
+    padding-right: 7px;
 }
 
 /* Content */
 
 .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #0079bf;
     width: 100vw;
     /* border: 1px black solid; */
@@ -72,11 +75,12 @@
 
 .content-description {
     display: flex;
-    width: 100%;
-    padding-left: 90px;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    padding-left: 50px;
     padding-right: 50px;
     padding-top: 50px;
-
 } 
 
 .content-text {
@@ -86,6 +90,7 @@
     width: 100%;
     /* border: 1px white dotted; */
     padding-right: 50px;
+    padding-left: 50px;
 }
 
 .content-text h1 {

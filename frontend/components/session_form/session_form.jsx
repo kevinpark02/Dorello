@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
-      
+
       const errors = this.props.errors;
 
       return(
@@ -61,14 +61,11 @@ class SessionForm extends React.Component {
                                 placeholder="Enter email"
                                 onChange={this.handleInput('email')}/>
                     
-
-                    
                         <input type="password"
                                 value={this.state.password}
                                 placeholder="Enter password"
                                 onChange={this.handleInput('password')}/>
                 
-        
                         <input type="submit" value={formType} className ="btn-green"/>
 
                         <Link className="session-form-alt" to={`/${linkType}`}>{otherLinkName}</Link>

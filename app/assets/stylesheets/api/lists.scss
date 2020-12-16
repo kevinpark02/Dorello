@@ -2,13 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.list-display-container {
+    background-image: url("https://source.unsplash.com/daily?sky");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 15px;
+    overflow-x: auto;
+}
+
 .list-board-title {
+    position: sticky;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: flex-start;
     font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #f8f8f8;
+    opacity: 0.9;
+    border: 1px #d2d2d2 solid;
+    border-radius: 5px;
+    width: auto;
     margin-left: 25px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-left: 10px;
 }
 
 .lists-cont {
@@ -32,6 +51,7 @@
     padding-bottom: 30px;
     background: #f2f2f2;
     border: 1px #d2d2d2 solid;
+    opacity: 0.9;
     border-radius: 5px;
 }
 
@@ -67,6 +87,7 @@
     justify-content: space-around;
     align-items: center;
     background: #f5f5f5;
+    opacity: 0.9;
     border: 1px #d5d5d5, solid;
     border-style: outset;
     width: 300px;
