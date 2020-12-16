@@ -15,7 +15,12 @@ class BoardIndex extends React.Component {
         const boards = this.props.boards;
         const authorId = this.props.authorId;
         const deleteBoard = this.props.deleteBoard;
-        // const users = this.props.users;
+        const demoUser = this.props.demoUser
+
+        const otherBoardsDisplay = (demoUser === "demo@trello.com") ?
+            (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards (Demo users have no access)</h4>) :
+                (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>);
+    
 
         return(
             <div className="board-cont">
@@ -34,10 +39,11 @@ class BoardIndex extends React.Component {
                     <BoardFormContainer />
                 </ul>
 
-                <h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>
+                {otherBoardsDisplay}
+                {/* <h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4> */}
                 <ul className="others-board-cont">
                     {boards.map(board => {
-                        if(board.author_id !== authorId) {
+                        if((board.author_id !== authorId) && (demoUser !== "demo@trello.com")) {
                             return(
                                 <BoardIndexItem board={board}
                                                 key={board.id}

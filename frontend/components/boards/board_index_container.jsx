@@ -5,7 +5,8 @@ import { fetchBoards, deleteBoard } from '../../actions/board_actions';
 const mapStateToProps = (state) => {
     return({
         boards: Object.values(state.entities.boards),
-        authorId: state.session.id
+        authorId: state.session.id,
+        demoUser: state.entities.users[state.session.id].email
         // users: state.entities.users
     })
 }
