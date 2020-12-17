@@ -103,7 +103,7 @@
     display: flex;
     flex-direction: column;
     text-overflow: ellipsis;
-    flex-wrap: nowrap;
+    // flex-wrap: nowrap;
 }
 
 .indiv-board-cont {
@@ -114,7 +114,7 @@
     height: 110px;
     border-radius: 5px;
     display: flex;
-    background: #f9f9f9;
+    background: #cba785;
     // background-image: url("https://source.unsplash.com/1600x900/?nature");
     // opacity: 0.5;
 }
@@ -123,6 +123,7 @@
     padding: 5px 10px;
     overflow: hidden;
     flex-wrap: wrap;
+    color: #fff;
 }
 
 .edit-board-form-cont {
@@ -156,5 +157,7 @@
 .board-author {
     text-decoration: underline;
     margin-top: 10px;
+    width: 245px;
+    overflow: hidden;
     // color: #0079bf;
 }

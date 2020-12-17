@@ -15,6 +15,7 @@ class EditListForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateList(this.state)
+        this.setState({ ['title']: "" })
     }
 
     render() {
