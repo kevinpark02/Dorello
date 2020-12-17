@@ -40,7 +40,9 @@ class ListIndex extends React.Component {
             // <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
-        const listForm = (this.state['clicked']) ? <ListFormContainer boardId={board.id} handleClick={this.handleClick}/> : <button className="list-form-cont-before" onClick={this.handleClick}>+ Add another list</button>
+        const listForm = (this.state['clicked']) ? 
+            <ListFormContainer boardId={board.id} handleClick={this.handleClick}/> : 
+                <button className="list-form-cont-before" onClick={this.handleClick}>+ Add another list</button>
 
         
         return(

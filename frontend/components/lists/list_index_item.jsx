@@ -6,8 +6,9 @@ import CardFormContainer from "../cards/create_card_form_container";
 class ListIndexItem extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = { clicked: false }
         this.handleClick = this.handleClick.bind(this);
+        this.handleCardForm = this.handleCardForm.bind(this);
     }
 
     handleClick(e) {
@@ -15,9 +16,20 @@ class ListIndexItem extends React.Component {
         this.props.deleteList(this.props.list.id)
     }
 
+    handleCardForm(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.setState({['clicked']: !this.state['clicked']})
+    }
+
+
     render() {
         const list = this.props.list;
         const board = this.props.board;
+
+        const cardForm = (this.state['clicked']) ? 
+            <CardFormContainer list={list} handleCardForm={this.handleCardForm}/> : 
+                <button className="card-container-before" onClick={this.handleCardForm}>+ Add another card</button>
 
         if (board === undefined){
             return null;
@@ -32,7 +44,8 @@ class ListIndexItem extends React.Component {
                 <EditListFormContainer list={list}/>
                 <CardIndexContainer list={list}
                                     board={board}/>
-                <CardFormContainer list={list}/>
+                {cardForm}
+                {/* <CardFormContainer list={list}/> */}
             </div>
         )
     }

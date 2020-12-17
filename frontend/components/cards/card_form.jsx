@@ -14,7 +14,7 @@ class CardForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createCard(this.state)
+        this.props.createCard(this.state).then(() => this.props.handleCardForm(e))
         this.setState({ ['name']: "" })
     }
 

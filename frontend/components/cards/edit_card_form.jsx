@@ -24,7 +24,7 @@ class EditCardForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateCard(this.state);
-        this.props.closeModal();
+        // this.props.closeModal();
     }
 
     render() {
