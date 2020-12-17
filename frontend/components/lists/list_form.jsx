@@ -14,7 +14,7 @@ class ListForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createList(this.state)
+        this.props.createList(this.state).then(() => this.props.handleClick(e));
         this.setState({ ['title']: "" })
     }
 

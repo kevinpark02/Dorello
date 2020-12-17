@@ -7,6 +7,14 @@ import { Link } from 'react-router-dom';
 class ListIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = this.props.listForm;
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.setState({['clicked']: !this.state['clicked']})
     }
 
     render() {
@@ -32,6 +40,8 @@ class ListIndex extends React.Component {
             // <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
+        const listForm = (this.state['clicked']) ? <ListFormContainer boardId={board.id} handleClick={this.handleClick}/> : <button className="list-form-cont-before" onClick={this.handleClick}>+ Add another list</button>
+
         
         return(
             <ul className="list-display-container">
@@ -52,7 +62,8 @@ class ListIndex extends React.Component {
                             )
                         }
                     })}
-                    <ListFormContainer boardId={board.id}/>
+                    {listForm}
+                    {/* <ListFormContainer boardId={board.id}/> */}
                 </div>
             </ul>
         )

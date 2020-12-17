@@ -97,12 +97,34 @@
     align-items: center;
     background: #f5f5f5;
     opacity: 0.9;
-    border: 1px #d5d5d5, solid;
-    border-style: outset;
+    border: 1px black solid;
+    // border-style: outset;
     width: 300px;
     height: 100px;
     border-radius: 7px;
     padding-bottom: 6px;
+}
+
+.list-form-cont-before {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background: #909090;
+    opacity: 0.9;
+    border: 1px #d5d5d5, solid;
+    border-style: outset;
+    width: 300px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 17px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.list-form-cont-before:hover {
+    background: #b6b6b6;
 }
 
 .list-form {
