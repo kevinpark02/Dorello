@@ -5,11 +5,24 @@ import BoardFormContainer from './create_board_form_container';
 class BoardIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = this.props.boardForm;
+        // this.handleClick = this.handleClick.bind(this);
+        // this.handleClicked = this.handleClicked.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchBoards();
     }
+
+    // handleClick(e) {
+    //     e.preventDefault();
+    //     this.setState({['clicked']: true})
+    // }
+    
+    // handleClicked(e) {
+    //     e.preventDefault();
+    //     this.setState({['clicked']: false})
+    // }
 
     render() {
         const boards = this.props.boards;
@@ -25,6 +38,8 @@ class BoardIndex extends React.Component {
         const otherBoardsDisplay = (demoUser === "demo@dorello.com") ?
             (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards (Demo users have no access)</h4>) :
                 (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>);
+
+        // const boardForm = (this.state['clicked']) ? <BoardFormContainer onClick={this.handleClicked} /> : <button onClick={this.handleClick}>Create Board</button>;
     
 
         return(
@@ -42,6 +57,7 @@ class BoardIndex extends React.Component {
                             )
                         }
                     })}
+                    {/* {boardForm} */}
                     <BoardFormContainer />
                 </ul>
 
