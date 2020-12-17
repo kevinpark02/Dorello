@@ -27,7 +27,7 @@
     border-radius: 5px;
     border: 2px solid #d5d5d5;
     // border-style: outset;
-    color: #fff;
+    color: #838383;
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -176,4 +176,18 @@
     color:#333333;
     font-weight: bolder;
     border-radius: 5px;
+}
+
+.card-form-btns-x button {
+    height: 27px;
+    font-size: 21px;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+}
+
+.card-form-btns-x button:hover {
+    color: #909090;
 }

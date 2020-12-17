@@ -172,3 +172,17 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+.list-form-btns-x button {
+    height: 27px;
+    font-size: 21px;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+}
+
+.list-form-btns-x button:hover {
+    color: #909090;
+}

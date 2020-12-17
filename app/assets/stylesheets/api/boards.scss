@@ -176,3 +176,23 @@
     overflow: hidden;
     // color: #0079bf;
 }
+
+.board-form-btns-x {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.board-form-btns-x button {
+    height: 27px;
+    font-size: 21px;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+}
+
+.board-form-btns-x button:hover {
+    color: #909090;
+}

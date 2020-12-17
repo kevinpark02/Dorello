@@ -6,6 +6,7 @@ class ListForm extends React.Component {
 
         this.state = this.props.list;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeForm = this.closeForm.bind(this);
     }
 
     update(field) {
@@ -18,6 +19,11 @@ class ListForm extends React.Component {
         this.setState({ ['title']: "" })
     }
 
+    closeForm(e) {
+        e.preventDefault();
+        this.props.handleClick(e)
+    }
+
     render() {
         const list = this.state;
         return(
@@ -28,7 +34,10 @@ class ListForm extends React.Component {
                             value={list.title}
                             placeholder="Add another list"
                             onChange={this.update('title')}/>
-                    <input className="btn-green list-form-btn" type="submit" value="Add List"/>
+                    <div className="list-form-btns-x">
+                        <input className="btn-green list-form-btn" type="submit" value="Add List"/>
+                        <button onClick={this.closeForm}>X</button>
+                    </div>
                 </form>
             </div>
         )

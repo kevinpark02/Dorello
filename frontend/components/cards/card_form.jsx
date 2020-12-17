@@ -6,6 +6,7 @@ class CardForm extends React.Component {
 
         this.state = this.props.card;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeForm = this.closeForm.bind(this);
     }
 
     update(field) {
@@ -16,6 +17,11 @@ class CardForm extends React.Component {
         e.preventDefault();
         this.props.createCard(this.state).then(() => this.props.handleCardForm(e))
         this.setState({ ['name']: "" })
+    }
+
+    closeForm(e) {
+        e.preventDefault();
+        this.props.handleCardForm(e);
     }
 
     render() {
@@ -29,7 +35,10 @@ class CardForm extends React.Component {
                            value={card.name}
                            placeholder="Enter a card name..."
                            onChange={this.update('name')}/>
-                    <input className="card-form-btn btn-green" type="submit" value="Add Card"/>
+                    <div className="card-form-btns-x">
+                        <input className="card-form-btn btn-green" type="submit" value="Add Card"/>
+                        <button onClick={this.closeForm}>X</button>
+                    </div>
                 </form>
             </div>
         )

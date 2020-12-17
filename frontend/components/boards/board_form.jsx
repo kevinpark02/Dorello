@@ -6,6 +6,7 @@ class BoardForm extends React.Component {
 
         this.state = this.props.board;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.closeForm = this.closeForm.bind(this);
     }
 
     update(field) {
@@ -16,6 +17,11 @@ class BoardForm extends React.Component {
         e.preventDefault();
         this.props.createBoard(this.state).then(() => this.props.handleClick(e));
         this.setState({ ['board_name']: "" });
+    }
+
+    closeForm(e) {
+        e.preventDefault();
+        this.props.handleClick(e);
     }
 
     renderErrors(){
@@ -42,8 +48,10 @@ class BoardForm extends React.Component {
                                value={board.board_name}
                                placeholder="Add board name"
                                onChange={this.update('board_name')}/>
-                    
-                    <input className="btn-green board-create-btn" type="submit" value="Create Board"/>
+                    <div className="board-form-btns-x">
+                        <input className="btn-green board-create-btn" type="submit" value="Create Board"/>
+                        <button onClick={this.closeForm}>X</button>
+                    </div>
                 </form>
             </div>
         )
