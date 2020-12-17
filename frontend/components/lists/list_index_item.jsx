@@ -18,6 +18,11 @@ class ListIndexItem extends React.Component {
     render() {
         const list = this.props.list;
         const board = this.props.board;
+
+        if (board === undefined){
+            return null;
+        }
+
         return(
             <div className="list-wrapper">
                 <div className="list-top-content">

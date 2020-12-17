@@ -15,6 +15,7 @@ class CommentForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createComment(this.state)
+        this.setState({ ['body']: "" })
     }
 
     render() {
@@ -25,7 +26,7 @@ class CommentForm extends React.Component {
                     <textarea value={comment.body}
                             placeholder="Write a comment..."
                             onChange={this.update('body')}/>
-                    <input className="btn-green comment-form-btn" type="submit" value="Save"/>
+                    <input className="btn-green comment-form-btn" type="submit" value="Comment"/>
                 </form>
             </div>
         )

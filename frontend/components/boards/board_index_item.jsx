@@ -18,30 +18,21 @@ class BoardIndexItem extends React.Component {
 
     render() {
         const board = this.props.board;
-        const deleteBoard = this.props.deleteBoard;
         const authorId = this.props.authorId;
-
-        const boardDisplay = authorId === board.author_id ? (
-            <Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name}</li></Link>
-        ) : 
-        (<Link to={`/boards/${board.id}`}><li className="indiv-board">{board.board_name} by <span className="board-author">{board.email}</span></li></Link>)
-
-        const deleteButton = authorId === board.author_id ? (
-            <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
-        ) : null
-
-        const edit = authorId === board.author_id ? (
-            <EditBoardFormContainer board={board}/>
-        ) : null
+        const boardDisplay = <li className="indiv-board">{board.board_name}</li>
+        const email = authorId === board.author_id ? null : (<h4 className="board-author">{board.email}</h4>)
+        // const deleteButton = authorId === board.author_id ? (
+        //     <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
+        // ) : null
 
         return(
-            <div className="indiv-board-cont">
-                {boardDisplay}
-                <ul className="indiv-board-btn-cont">
-                    <li>{edit}</li>
-                    <li>{deleteButton}</li>
-                </ul>
+            <div className="board-wrap">
+                {email}
+                <Link className="indiv-board-cont" to={`/boards/${board.id}`}>
+                    {boardDisplay}
+                </Link>
             </div>
+
         )
     }
 }
