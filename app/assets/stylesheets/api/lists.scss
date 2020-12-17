@@ -92,6 +92,7 @@
 .list-form-cont {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     justify-content: space-around;
     align-items: center;
     background: #f5f5f5;

@@ -7,15 +7,7 @@ import { Link } from 'react-router-dom';
 class ListIndex extends React.Component {
     constructor(props) {
         super(props)
-
-        // this.handleClick = this.handleClick.bind(this);
     }
-
-    // handleClick(e) {
-    //     e.preventDefault();
-    //     this.props.deleteBoard(this.props.board.id);
-    //     <Redirect to="/feed"></Redirect>
-    // }
 
     render() {
         const lists = this.props.lists;
@@ -37,7 +29,7 @@ class ListIndex extends React.Component {
 
         const deleteButton = authorId === board.author_id ? (
             <Link to="/feed"><button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button></Link>
-            // <button className="btn-red board-delete-btn" onClick={this.handleClick}>Delete</button>
+            // <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
         

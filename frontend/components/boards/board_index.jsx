@@ -6,23 +6,20 @@ class BoardIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.boardForm;
-        // this.handleClick = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         // this.handleClicked = this.handleClicked.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchBoards();
+        // document.addEventListener('mousedown', this.handleClick);
     }
 
-    // handleClick(e) {
-    //     e.preventDefault();
-    //     this.setState({['clicked']: true})
-    // }
-    
-    // handleClicked(e) {
-    //     e.preventDefault();
-    //     this.setState({['clicked']: false})
-    // }
+    handleClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.setState({['clicked']: !this.state['clicked']})
+    }
 
     render() {
         const boards = this.props.boards;
@@ -39,7 +36,7 @@ class BoardIndex extends React.Component {
             (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards (Demo users have no access)</h4>) :
                 (<h4 className="others-board-title"><span><i className="fas fa-users fa-lg"></i></span><span>&nbsp;</span>&nbsp; Other Boards</h4>);
 
-        // const boardForm = (this.state['clicked']) ? <BoardFormContainer onClick={this.handleClicked} /> : <button onClick={this.handleClick}>Create Board</button>;
+        const boardForm = (this.state['clicked']) ? <BoardFormContainer handleClick={this.handleClick}/> : <button className="board-create-form-before" onClick={this.handleClick}>Create Board</button>;
     
 
         return(
@@ -57,8 +54,8 @@ class BoardIndex extends React.Component {
                             )
                         }
                     })}
-                    {/* {boardForm} */}
-                    <BoardFormContainer />
+                    {boardForm}
+                    {/* <BoardFormContainer /> */}
                 </ul>
 
                 {otherBoardsDisplay}

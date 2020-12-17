@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
         boards: Object.values(state.entities.boards),
         authorId: state.session.id,
         demoUser: state.entities.users[state.session.id].email,
-        // boardForm: { clicked: false }
+        boardForm: { clicked: false }
         // users: state.entities.users
     })
 }
