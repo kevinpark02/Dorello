@@ -17,6 +17,13 @@ class ListIndex extends React.Component {
         this.setState({['clicked']: !this.state['clicked']})
     }
 
+    handleDelete(id) {
+        return (e) => {
+            e.preventDefault();
+            this.props.deleteBoard(id).then(this.props.history.push("/feed"));
+        }
+    }
+
     render() {
         const lists = this.props.lists;
         const board = this.props.board;
@@ -36,7 +43,7 @@ class ListIndex extends React.Component {
         ) : <h4 className="list-board-title">{board.board_name}</h4>
 
         const deleteButton = authorId === board.author_id ? (
-            <Link to="/feed"><button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button></Link>
+            <button className="btn-red board-delete-btn" onClick={this.handleDelete(board.id)}>Delete</button>
             // <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
         ) : null
 
