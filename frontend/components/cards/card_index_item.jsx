@@ -20,13 +20,12 @@ class CardIndexItem extends React.Component {
         const editForm = this.props.editForm;
 
         return(
-            <div className="card-container">
-                {/* <Link to={`/boards/${board.id}/${card.id}/edit`}><li>{card.name}</li></Link> */}
-                <Link onClick={this.handleClick} to={`/boards/${board.id}/${card.id}`}><li>{card.name}</li></Link>
-                {/* <button onClick={this.handleClick}>{card.name}</button> */}
-                {/* <button onClick={this.handleClick}><li>{card.name}</li></button> */}
-                {due}
-            </div>
+            <Link onClick={this.handleClick} to={`/boards/${board.id}/${card.id}`}>
+                <div className="card-container">
+                    <li className="card-name">{card.name}</li>
+                    {due}
+                </div>
+            </Link>
         )
     }
 }
