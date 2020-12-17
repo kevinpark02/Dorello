@@ -36,7 +36,7 @@ class BoardForm extends React.Component {
             <div className="board-create">
                 <form onSubmit={this.handleSubmit} className="board-create-form">
                     {/* {this.renderErrors()} */}
-                    <h4 className="board-create-title">Create a New Board</h4>
+                    {/* <h4 className="board-create-title">Create a New Board</h4> */}
                         <input className="board-create-input"
                                type="text"
                                value={board.board_name}
