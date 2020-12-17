@@ -2,7 +2,7 @@ import React from 'react';
 import ListIndexItem from "./list_index_item";
 import ListFormContainer from "./create_list_form_container";
 import EditBoardFormContainer from "../boards/edit_board_form_container";
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ListIndex extends React.Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class ListIndex extends React.Component {
         ) : <h4 className="list-board-title">{board.board_name}</h4>
 
         const deleteButton = authorId === board.author_id ? (
-            <button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button>
+            <Link to="/feed"><button className="btn-red board-delete-btn" onClick={() => deleteBoard(board.id)}>Delete</button></Link>
             // <button className="btn-red board-delete-btn" onClick={this.handleClick}>Delete</button>
         ) : null
 
