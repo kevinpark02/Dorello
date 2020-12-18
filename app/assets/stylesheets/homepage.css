@@ -104,5 +104,16 @@
 }
 
 .content-img {
+    width: 100%
+}
+
+.content-img img{
     width: 100%;
+}
+
+@media(max-width: 1050px) {
+    .content-description {
+        display: flex;
+        flex-direction: column;
+    }
 }

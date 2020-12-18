@@ -25,7 +25,7 @@ class Greeting extends React.Component {
     const greeting = this.props.currentUser ? (
         <div className="navbar-logged">
             <p className="text-white">Hello, {this.props.currentUser.email}</p>
-            <button className="btn-white text-blue" onClick={this.handleLogout}>Log Out</button>
+            <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button>
         </div>
     ) : (
         <div className="navbar-auth">

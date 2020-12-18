@@ -19,6 +19,14 @@
     padding: 10px 7px;
 }
 
+.btn-white-logout {
+    background-color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 7px;
+}
+
 .demo-btn {
     background-color: #46B724;
     color: #fff;
@@ -71,3 +79,14 @@
     font-size: 16px;
     border: 1px #525252 solid;
 }
+
+/* @media(max-width: 600px) {
+    .btn-white-logout {
+        background-color: #fff;
+        font-weight: 500;
+        border-radius: 5px;
+        text-decoration: none;
+        padding: 10px 7px;
+        width: 30px;
+    }
+} */
