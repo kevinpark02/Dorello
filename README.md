@@ -29,6 +29,8 @@ User Auth
 
 Users can log in, sign up, or try the demo version of the application to use full features, using the buttons in the navigation bar. BCrypt secures the passwords  and randomly generates session tokens which are stored in cookies. The session tokens are destroyed upon logging out. 
 
+Board Create
 
+Users are able to create boards and are able to acces the board to create lists and cards
 
 
