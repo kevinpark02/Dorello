@@ -105,7 +105,7 @@
 .board-delete-btn {
     // margin-top: 10px;
     cursor: pointer;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     height: 30px;
     margin-left: 15px;
 }
@@ -146,7 +146,7 @@
     justify-content: flex-start;
     margin-left: 25px;
     align-items: center;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;`
 }
 
 .edit-board-form-cont input:first-child {
@@ -167,6 +167,7 @@
     height: 30px;
     cursor: pointer;
     margin-left: 15px;
+    border: 1px white solid;
 }
 
 .board-author {
