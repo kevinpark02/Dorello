@@ -38,7 +38,7 @@ class ListIndexItem extends React.Component {
         return(
             <div className="list-wrapper">
                 <div className="list-top-content">
-                    <li>{list.title}</li> 
+                    <li className="list-title">{list.title}</li> 
                     <button className="list-delete-btn" onClick={this.handleClick}>Delete</button>
                 </div>
                 <EditListFormContainer list={list}/>

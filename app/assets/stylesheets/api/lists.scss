@@ -61,10 +61,12 @@
     border: 1px #d2d2d2 solid;
     opacity: 0.9;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .list-top-content {
     display: flex;
+    flex-wrap: wrap;
     height: auto;
     justify-content: space-between;
     align-items: center;
@@ -72,6 +74,14 @@
 
 .list-top-content:first-child {
     font-size: 17px;
+}
+
+.list-title {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    width: 200px;
+    height: 20px;
 }
 
 .list-delete-btn {
