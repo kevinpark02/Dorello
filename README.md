@@ -26,7 +26,7 @@ Additonal technologies:
 
 ##Features:
 User Auth
-
+<img src="./app/assets/images/user_auth.png">
 Users can log in, sign up, or try the demo version of the application to use full features, using the buttons in the navigation bar. BCrypt secures the passwords  and randomly generates session tokens which are stored in cookies. The session tokens are destroyed upon logging out. 
 
 Board Create
