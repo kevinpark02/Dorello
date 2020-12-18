@@ -22,5 +22,13 @@ Hosting:
 Additonal technologies:
 * [BCrypt](https://github.com/codahale/bcrypt-ruby): for secure user authentication v3.1.7
 * [FontAwesome](https://fontawesome.com/): for icons
+* [Unsplash Source](https://source.unsplash.com/): for background images
+
+##Features:
+User Auth
+
+Users can log in, sign up, or try the demo version of the application to use full features, using the buttons in the navigation bar. BCrypt secures the passwords  and randomly generates session tokens which are stored in cookies. The session tokens are destroyed upon logging out. 
+
+
 
 
