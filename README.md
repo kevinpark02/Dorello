@@ -2,4 +2,4 @@
 
 ## [Live Site](https://dorellokp.herokuapp.com/#/)
 
-![](/dorello_demo)
+![alt text](/Desktop/dorello_demo) "Logo Title Text 1")
