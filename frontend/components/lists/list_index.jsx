@@ -20,7 +20,7 @@ class ListIndex extends React.Component {
     handleDelete(id) {
         return (e) => {
             e.preventDefault();
-            this.props.deleteBoard(id).then(this.props.history.push("/feed"));
+            this.props.deleteBoard(id).then(() => this.props.history.push("/feed"));
         }
     }
 
