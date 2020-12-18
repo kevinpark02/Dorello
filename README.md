@@ -7,4 +7,4 @@ Dorellos is a Trello clone. It is a project management application that allows t
 
 ## Technologies:
 Backend:
-*
+* hi
