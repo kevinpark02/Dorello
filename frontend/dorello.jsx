@@ -11,7 +11,7 @@ import configureStore from './store/store';
     // import { receiveAllBoards } from "./actions/board_actions";
     // import { createList, updateList, deleteList } from "./actions/list_actions";
     // import {createCard, updateCard, deleteCard } from "./actions/card_actions";
-    import { createComment, updateComment, deleteComment } from "./actions/comment_actions";
+    // import { createComment, updateComment, deleteComment } from "./actions/comment_actions";
 // FOR TESTING - END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // window.updateCard = updateCard;
         // window.deleteCard = deleteCard;
 
-        window.createComment = createComment;
-        window.updateComment = updateComment;
-        window.deleteComment = deleteComment;
+        // window.createComment = createComment;
+        // window.updateComment = updateComment;
+        // window.deleteComment = deleteComment;
 
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
     // FOR TESTING - END
 
     ReactDOM.render(<Root store={store} />, root);
