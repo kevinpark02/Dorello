@@ -18,10 +18,10 @@ import Modal from "../modal/modal";
 const App = () => (
   <div>
     <header className="hero">
-      <div className="navbar">
-        <Link to="/" className="dorello-link"><h1 className="dorello"><span><img className="home-logo" src={window.logo} alt="logo"/></span><span>&nbsp;</span>&nbsp;Dorello</h1></Link>
+      {/* <div className="navbar"> */}
+        {/* <Link to="/" className="dorello-link"><h1 className="dorello"><span><img className="home-logo" src={window.logo} alt="logo"/></span><span>&nbsp;</span>&nbsp;Dorello</h1></Link> */}
         <GreetingContainer />
-      </div>
+      {/* </div> */}
       <AuthRoute exact path="/" component={GreetingSplash} />      
     </header>
 

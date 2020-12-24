@@ -24,14 +24,24 @@ class Greeting extends React.Component {
     render() {
     const greeting = this.props.currentUser ? (
         <div className="navbar-logged">
-            <p className="text-white">Hello, {this.props.currentUser.email}</p>
-            <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button>
+            <div className="left-buttons">
+                <Link to="/feed"><button className="home-btn"><i className="fas fa-home fa-lg"></i></button></Link>
+                <button className="boards-btn"><i className="fab fa-trello fa-lg"></i>&nbsp;&nbsp;Boards</button>
+
+            </div>
+            <div className="right-profile">
+                <p className="text-white">Hello, {this.props.currentUser.email}</p>
+                <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button>
+            </div>
         </div>
     ) : (
-        <div className="navbar-auth">
-            <li><Link className="text-white login-btn" to="/login">Log&nbsp;In</Link></li>
-            <li><Link className="btn-white text-blue" to="/signup">Sign&nbsp;Up</Link></li>
-            <li className="demo-btn"><button onClick={this.handleDemo}>Demo</button></li>
+        <div className="navbar">
+            <li><Link to="/" className="dorello-link"><h1 className="dorello-white"><span><img className="home-logo" src={window.logo} alt="logo"/></span><span>&nbsp;</span>&nbsp;Dorello</h1></Link></li>
+            <div className="navbar-auth">
+                <li><Link className="text-white login-btn" to="/login">Log&nbsp;In</Link></li>
+                <li><Link className="btn-white text-blue" to="/signup">Sign&nbsp;Up</Link></li>
+                <li className="demo-btn"><button onClick={this.handleDemo}>Demo</button></li>
+            </div>
         </div>
     );
         return(
