@@ -6,12 +6,16 @@ class Greeting extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { clicked: false };
+        this.state = { clicked: false,
+                       profile: false
+                     };
 
         this.handleDemo = this.handleDemo.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.showProfile = this.showProfile.bind(this);
+        this.closeProfile = this.closeProfile.bind(this);
     }
 
     handleDemo(e) {
@@ -23,7 +27,7 @@ class Greeting extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
-        this.props.logout().then(this.setState({['clicked']: false}))
+        this.props.logout().then(this.setState({['clicked']: false, ['profile']: false}))
     }
 
     showMenu(e) {
@@ -33,6 +37,7 @@ class Greeting extends React.Component {
         })
     }
 
+    
     closeMenu(e) {
         if (!this.dropdownMenu.contains(e.target)) {
             this.setState({ clicked: false }, () => {
@@ -40,7 +45,22 @@ class Greeting extends React.Component {
             });
         }
     }
-
+    
+    showProfile(e) {
+        e.preventDefault();
+        this.setState({['profile']: !this.state['profile']}, () => {
+            document.addEventListener('mousedown', this.closeProfile)
+        })
+    }
+    
+    closeProfile(e) {
+        if (!this.dropdownProfile.contains(e.target)) {
+            this.setState({ profile: false }, () => {
+                document.removeEventListener('mousedown', this.closeProfile);
+            });
+        }
+    }
+    
     render() {
         const boards = this.props.boards;
         const authorId = this.props.authorId;
@@ -63,9 +83,9 @@ class Greeting extends React.Component {
             </div>
         ) : null;
 
-        const profile = this.state['clicked'] ? 
+        const profile = this.state['profile'] ? 
         (
-            <div className="profile-menu-cont" ref={(element) => {this.dropdownMenu = element;}}>
+            <div className="profile-menu-cont" ref={(element) => {this.dropdownProfile = element;}}>
                 <div className="profile-menu">
                     <a href=""><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Upload&nbsp;Profile&nbsp;Picture</a>
                     <a href="https://github.com/kevinpark02/Dorello.git"><i className="fab fa-github"></i>&nbsp;&nbsp;Github</a>
@@ -85,7 +105,7 @@ class Greeting extends React.Component {
                 <div className="right-profile">
                     <p className="text-white">Welcome, {this.props.currentUser.email}</p>
                     {/* <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button> */}
-                    <button className="profile-btn" onClick={this.showMenu}>{this.props.currentUser.email[0].toUpperCase()}</button>
+                    <button className="profile-btn" onClick={this.showProfile}>{this.props.currentUser.email[0].toUpperCase()}</button>
                 </div>
             </div>
         ) : (
@@ -107,31 +127,5 @@ class Greeting extends React.Component {
             )
         }
 }
-
-// const Greeting = ({currentUser, logout, login}) => {
-//     const demoUser = {
-//                         email: "demo@trello.com",
-//                         password: "demoonly"
-//                      }
-
-//     const greeting = currentUser ? (
-//         <div className="navbar-logged">
-//             <p className="text-white">Hello, {currentUser.email}</p>
-//             <button className="btn-white text-blue" onClick={logout}>Log Out</button>
-//         </div>
-//     ) : (
-//         <div className="navbar-auth">
-//             <li><Link className="text-white login-btn" to="/login">Log&nbsp;In</Link></li>
-//             <li><Link className="btn-white text-blue" to="/signup">Sign&nbsp;Up</Link></li>
-//             <li className="demo-btn"><button onClick={login(demoUser)}>Demo</button></li>
-//         </div>
-//     );
-
-//     return(
-//             <div>
-//                 {greeting}
-//             </div>
-//     )
-// }
 
 export default Greeting;
