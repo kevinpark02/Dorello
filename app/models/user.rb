@@ -34,6 +34,8 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :creator_id,
         class_name: :Comment
+
+    has_one_attached :photo
         
     # ASSOCIATIONS - END
     
