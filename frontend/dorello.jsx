@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // window.updateComment = updateComment;
         // window.deleteComment = deleteComment;
 
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
     // FOR TESTING - END
 
     ReactDOM.render(<Root store={store} />, root);

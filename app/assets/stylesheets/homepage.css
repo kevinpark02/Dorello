@@ -146,6 +146,7 @@
     border-radius: 5px;
     background: #909090;
     color: #fff;
+    width: 265px;
 }
 
 .pop-boards button:hover {
@@ -156,9 +157,65 @@
     margin: 0;
 }
 
+.pop-boards-btn {
+    margin-bottom: 5px;
+}
+
 .pop-boards h4 {
     padding-left: 5px;
     margin-top: 20px;
+}
+
+.profile-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: #87cefa;
+}
+
+.profile-menu-cont {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-menu {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+    width: 300px;
+    z-index: 10;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3px;
+}
+
+.profile-menu h4 {
+    padding-left: 10px;
+    margin-bottom: 7px;
+}
+
+.profile-menu a {
+    padding-left: 10px;
+    margin-bottom: 7px;
+    /* border: 1px black solid; */
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    overflow: hidden;
+}
+
+.profile-menu a:hover {
+    background-color: #ededed;
+}
+
+.profile-menu a:last-child {
+    margin-bottom: 0;
 }
 
 /* Content */

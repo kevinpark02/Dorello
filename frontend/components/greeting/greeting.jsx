@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import BoardShowContainer from '../boards/board_show_container';
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -27,7 +28,6 @@ class Greeting extends React.Component {
 
     showMenu(e) {
         e.preventDefault();
-        // console.log(this.dropdownMenu);
         this.setState({['clicked']: !this.state['clicked']}, () => {
             document.addEventListener('mousedown', this.closeMenu)
         })
@@ -55,7 +55,7 @@ class Greeting extends React.Component {
                     {boards.map(board => {
                         if(board.author_id === authorId) {
                             return(
-                                <button key={board.id}>{board.board_name}</button>
+                                <Link to={`/boards/${board.id}`} className="pop-boards-btn" key={board.id}><button>{board.board_name}</button></Link>
                             )
                         }
                     })}
@@ -63,6 +63,17 @@ class Greeting extends React.Component {
                 <h4>Make more boards!</h4>
             </div>
         ) : null;
+
+        const profile = (
+            <div className="profile-menu-cont">
+                <div className="profile-menu">
+                    <h4>Hello, {this.props.currentUser.email}</h4>
+                    <a href=""><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Profile&nbsp;Picture</a>
+                    <a href="https://github.com/kevinpark02/Dorello.git"><i className="fab fa-github"></i>&nbsp;&nbsp;Github</a>
+                    <a href="https://www.linkedin.com/in/kevin-park-p-e-04286949/"><i className="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
+                </div>
+            </div>
+        )
 
         const greeting = this.props.currentUser ? (
             <div className="navbar-logged">
@@ -74,6 +85,7 @@ class Greeting extends React.Component {
                 <div className="right-profile">
                     <p className="text-white">Hello, {this.props.currentUser.email}</p>
                     <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button>
+                    <button className="profile-btn">{this.props.currentUser.email[0].toUpperCase()}</button>
                 </div>
             </div>
         ) : (
@@ -90,6 +102,7 @@ class Greeting extends React.Component {
                 <div>
                     {greeting}
                     {popBoards}
+                    {profile}
                 </div>
             )
         }
