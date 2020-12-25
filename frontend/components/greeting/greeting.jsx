@@ -23,7 +23,7 @@ class Greeting extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
-        this.props.logout()
+        this.props.logout().then(this.setState({['clicked']: false}))
     }
 
     showMenu(e) {
@@ -60,20 +60,20 @@ class Greeting extends React.Component {
                         }
                     })}
                 </ul>
-                <h4>Make more boards!</h4>
             </div>
         ) : null;
 
-        const profile = (
-            <div className="profile-menu-cont">
+        const profile = this.state['clicked'] ? 
+        (
+            <div className="profile-menu-cont" ref={(element) => {this.dropdownMenu = element;}}>
                 <div className="profile-menu">
-                    <h4>Hello, {this.props.currentUser.email}</h4>
-                    <a href=""><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Profile&nbsp;Picture</a>
+                    <a href=""><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Upload&nbsp;Profile&nbsp;Picture</a>
                     <a href="https://github.com/kevinpark02/Dorello.git"><i className="fab fa-github"></i>&nbsp;&nbsp;Github</a>
                     <a href="https://www.linkedin.com/in/kevin-park-p-e-04286949/"><i className="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
+                    <button onClick={this.handleLogout}><i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log&nbsp;Out</button>
                 </div>
             </div>
-        )
+        ) : null;
 
         const greeting = this.props.currentUser ? (
             <div className="navbar-logged">
@@ -83,9 +83,9 @@ class Greeting extends React.Component {
                     {/* {popBoards} */}
                 </div>
                 <div className="right-profile">
-                    <p className="text-white">Hello, {this.props.currentUser.email}</p>
-                    <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button>
-                    <button className="profile-btn">{this.props.currentUser.email[0].toUpperCase()}</button>
+                    <p className="text-white">Welcome, {this.props.currentUser.email}</p>
+                    {/* <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button> */}
+                    <button className="profile-btn" onClick={this.showMenu}>{this.props.currentUser.email[0].toUpperCase()}</button>
                 </div>
             </div>
         ) : (
