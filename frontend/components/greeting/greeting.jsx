@@ -95,6 +95,13 @@ class Greeting extends React.Component {
             </div>
         ) : null;
 
+        // console.log(this.props.currentUser.photoUrl);
+
+        const profilePic = (this.props.currentUser && (this.props.currentUser.photoUrl !== undefined)) ? 
+            (<img className="profile-pic-img" src={this.props.currentUser.photoUrl}/>) :
+                !this.props.currentUser ? null :
+                    this.props.currentUser.email[0].toUpperCase() ;
+
         const greeting = this.props.currentUser ? (
             <div className="navbar-logged">
                 <div className="left-buttons">
@@ -105,7 +112,7 @@ class Greeting extends React.Component {
                 <div className="right-profile">
                     <p className="text-white">Welcome, {this.props.currentUser.email}</p>
                     {/* <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button> */}
-                    <button className="profile-btn" onClick={this.showProfile}>{this.props.currentUser.email[0].toUpperCase()}</button>
+                    <button className="profile-btn" onClick={this.showProfile}>{profilePic}</button>
                 </div>
             </div>
         ) : (
