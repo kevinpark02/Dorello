@@ -22,7 +22,9 @@ class ProfileForm extends React.Component {
 
     handleSubmit(e) {
         const formData = new FormData();
-        formData.append('user[photo]', this.state.photoFile);
+        if (this.state.photoFile) {
+            formData.append('user[photo]', this.state.photoFile);
+        }
         $.ajax({
             url: `/api/users/${this.props.currentUser.id}`,
             method: "PATCH",
