@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import BoardShowContainer from '../boards/board_show_container';
+import ProfileForm from "../profiles/profile_form";
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Greeting extends React.Component {
         this.closeMenu = this.closeMenu.bind(this);
         this.showProfile = this.showProfile.bind(this);
         this.closeProfile = this.closeProfile.bind(this);
+        this.uploadProfile = this.uploadProfile.bind(this);
     }
 
     handleDemo(e) {
@@ -60,6 +62,11 @@ class Greeting extends React.Component {
             });
         }
     }
+
+    uploadProfile(e){
+        e.preventDefault();
+        this.props.openModal('profile', null)
+    }
     
     render() {
         const boards = this.props.boards;
@@ -75,7 +82,9 @@ class Greeting extends React.Component {
                     {boards.map(board => {
                         if(board.author_id === authorId) {
                             return(
-                                <Link to={`/boards/${board.id}`} className="pop-boards-btn" key={board.id}><button>{board.board_name}</button></Link>
+                                <Link to={`/boards/${board.id}`} className="pop-boards-btn" key={board.id}>
+                                    <button>{board.board_name}</button>
+                                </Link>
                             )
                         }
                     })}
@@ -87,10 +96,11 @@ class Greeting extends React.Component {
         (
             <div className="profile-menu-cont" ref={(element) => {this.dropdownProfile = element;}}>
                 <div className="profile-menu">
-                    <a href=""><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Upload&nbsp;Profile&nbsp;Picture</a>
+                    <a href="" onClick={this.uploadProfile}><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Upload&nbsp;Profile&nbsp;Picture</a>
                     <a href="https://github.com/kevinpark02/Dorello.git"><i className="fab fa-github"></i>&nbsp;&nbsp;Github</a>
                     <a href="https://www.linkedin.com/in/kevin-park-p-e-04286949/"><i className="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
                     <button onClick={this.handleLogout}><i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log&nbsp;Out</button>
+                    {/* <ProfileForm /> */}
                 </div>
             </div>
         ) : null;

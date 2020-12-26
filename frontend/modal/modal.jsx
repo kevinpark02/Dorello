@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from "../actions/modal_actions";
 import { connect } from "react-redux";
 import EditCardFormContainer from "../components/cards/edit_card_form_container";
+import ProfileFormContainer from "../components/profiles/profile_form_container";
 
 function Modal({modal, cardId, closeModal}) {
     if (!modal) {
@@ -13,6 +14,9 @@ function Modal({modal, cardId, closeModal}) {
         case 'edit':
             component = <EditCardFormContainer cardId={cardId}
                                                closeModal={closeModal}/>;
+            break;
+        case 'profile':
+            component = <ProfileFormContainer closeModal={closeModal}/>;
             break;
         default:
             return null

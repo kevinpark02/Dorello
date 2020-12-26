@@ -1,0 +1,55 @@
+.profile-pic-upload-container {
+    background-color: #fff;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    border-radius: 5px;
+}
+
+.profile-pic-snip {
+    width: 125px;
+    height: 125px;
+    border-radius: 100%;
+    margin: 20px auto 0;
+    background: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    color: #333;
+}
+
+.profile-pic-upload-container h4 {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.profile-pic-upload-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic-upload-container input {
+    margin: 5px auto 0;
+    padding-left: 80px;
+    margin-bottom: 12px;
+}
+
+.profile-pic-upload-container input:last-child {
+    padding: 0;
+    width: 165px;
+    height: 35px;
+    outline: 0;
+    background-color: #0079bf;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}

@@ -32,6 +32,7 @@ const App = () => (
 
     <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
     <ProtectedRoute exact path="/boards/:boardId" component={ListIndexContainer}/>
+    <ProtectedRoute exact path="/feed" component={Modal}/>
     <ProtectedRoute exact path="/boards/:boardId" component={Modal}/>
   </div>
 );
