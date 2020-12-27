@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ListIndex from './list_index';
 import { createList, updateList, deleteList } from "../../actions/list_actions"
 import { deleteBoard } from "../../actions/board_actions";
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
     return({
@@ -21,4 +22,4 @@ const mapDispatchToProps = dispatch => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListIndex));

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import BoardShow from './board_show';
 import { fetchBoard } from '../../actions/board_actions';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
     return({
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardShow)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardShow));

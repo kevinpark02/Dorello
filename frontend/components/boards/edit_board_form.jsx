@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 class EditBoardForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.board;
+        this.state = this.props.board
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        // this.props.fetchBoard(this.props.boardId)
         this.props.fetchBoards();
     }
 

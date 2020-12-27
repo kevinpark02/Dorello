@@ -10,7 +10,8 @@ class Greeting extends React.Component {
         this.state = { clicked: false,
                        profile: false
                      };
-
+        
+        this.handleClick = this.handleClick.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.showMenu = this.showMenu.bind(this);
@@ -18,6 +19,15 @@ class Greeting extends React.Component {
         this.showProfile = this.showProfile.bind(this);
         this.closeProfile = this.closeProfile.bind(this);
         this.uploadProfile = this.uploadProfile.bind(this);
+    }
+
+    handleClick(id) {
+        return e => {
+            e.preventDefault();
+            this.props.fetchBoard(id)
+                .then(() => this.props.history.push(`/boards/${id}`));
+            this.setState({['clicked']: !this.state['clicked']});
+        }
     }
 
     handleDemo(e) {
@@ -82,9 +92,10 @@ class Greeting extends React.Component {
                     {boards.map(board => {
                         if(board.author_id === authorId) {
                             return(
-                                <Link to={`/boards/${board.id}`} className="pop-boards-btn" key={board.id}>
-                                    <button>{board.board_name}</button>
-                                </Link>
+                                <button key={board.id} onClick={this.handleClick(board.id)}>{board.board_name}</button>
+                                // <Link to={`/boards/${board.id}`} onClick={this.handleClick} className="pop-boards-btn" key={board.id}>
+                                //     <button>{board.board_name}</button>
+                                // </Link>
                             )
                         }
                     })}

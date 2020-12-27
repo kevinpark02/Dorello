@@ -9,6 +9,7 @@ import SignupFormContainer from "./session_form/signup_form_container";
 
 import BoardIndexContainer from "./boards/board_index_container";
 import BoardShowContainer from "./boards/board_show_container";
+import EditBoardFormContainer from "./boards/edit_board_form_container";
 
 import ListIndexContainer from "./lists/list_index_container";
 
@@ -32,6 +33,7 @@ const App = () => (
 
     <ProtectedRoute exact path="/boards/:boardId" component={BoardShowContainer}/>
     <ProtectedRoute exact path="/boards/:boardId" component={ListIndexContainer}/>
+    <ProtectedRoute exact path="/boards/:boardId" component={EditBoardFormContainer}/>
     <ProtectedRoute exact path="/feed" component={Modal}/>
     <ProtectedRoute exact path="/boards/:boardId" component={Modal}/>
   </div>

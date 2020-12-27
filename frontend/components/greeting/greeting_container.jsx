@@ -3,6 +3,7 @@ import Greeting from './greeting';
 import { logout, login } from '../../actions/session_actions';
 import { fetchBoard } from '../../actions/board_actions';
 import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => ({
     currentUser: state.entities.users[state.session.id],
@@ -17,5 +18,5 @@ const mapDispatchToProps = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Greeting));
 
