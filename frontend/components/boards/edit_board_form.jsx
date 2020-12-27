@@ -12,6 +12,20 @@ class EditBoardForm extends React.Component {
         this.props.fetchBoards();
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.board) {
+            if(prevProps.board.board_name !== this.props.board.board_name) {
+                this.setState({id: this.props.board.id,
+                                board_name: this.props.board.board_name,
+                                author_id: this.props.board.author_id,
+                                email: this.props.board.email
+                              });
+            }
+        } else {
+            return null;
+        }
+    }
+
     update(field) {
         return e => this.setState({[field]: e.target.value})
     }
