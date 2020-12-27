@@ -130,6 +130,7 @@ class Greeting extends React.Component {
                     <button className="boards-btn" onClick={this.showMenu}><i className="fab fa-trello fa-lg"></i>&nbsp;&nbsp;Boards</button>
                     {/* {popBoards} */}
                 </div>
+                <Link to="/" className="dorello-link"><h1 className="dorello-white"><span>&nbsp;</span>&nbsp;Dorello</h1></Link>
                 <div className="right-profile">
                     <p className="text-white">Welcome, {this.props.currentUser.email}</p>
                     {/* <button className="btn-white-logout text-blue" onClick={this.handleLogout}>Log&nbsp;Out</button> */}
