@@ -25,9 +25,17 @@ Additonal technologies:
 * [Unsplash Source](https://source.unsplash.com/): for background images
 
 ## Features:
+
 ### User Authentication
+
 <img src="./app/assets/images/user_auth.png">
 Users can log in, sign up, or try the demo version of the application to use full features, using the buttons in the navigation bar. BCrypt secures the passwords  and randomly generates session tokens which are stored in cookies. The session tokens are destroyed upon logging out. 
+
+### Board, Lists, Cards, and Comments
+
+Users can create a board to start a project. Inside the board, lists are created and within the lists, action items (cards) can be created and assigned a due date. Clicking on a card open up a modal where a user can set a due date for the action item, write a description. Different people involved in the project can comment in the card for discussions
+
+<img src="./app/assets/images/readme_board_list_card_comment.gif">
 
 ### AWS S3 Image Upload
 
@@ -39,14 +47,14 @@ In the model, has_one_attached association was made between the profile photo an
 has_one_attached :photo
 ```
 
-And if the user had a photo uploaded, the photoUrl attribute in the user slice of state was extracted.
+When returning a json response, if the user had a photo uploaded, the photoUrl attribute in the user slice of state was extracted. If the user had no photo available, only the user id and email were extracted. The reason is, the browser displayed an error if the user did not have the photoUrl attribute available, and the conditional case was necessary as shown below:
 
 ```
 if user.photo.attached?
     json.extract! user, :id, :email
     json.photoUrl url_for(user.photo)
 else
-    json.extra! user, :id, :email
+    json.extrat! user, :id, :email
 end
 ```
 
@@ -82,8 +90,3 @@ handleSubmit(e) {
         })
     }
 ```
-### Board, Lists, Cards, and Comments
-
-Users can create a board to start a project. Inside the board, lists are created and within the lists, action items (cards) can be created and assigned a due date. Clicking on a card open up a modal where a user can set a due date for the action item, write a description. Different people involved in the project can comment in the card for discussions
-
-<img src="./app/assets/images/readme_board_list_card_comment.gif">
