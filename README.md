@@ -90,3 +90,7 @@ handleSubmit(e) {
         })
     }
 ```
+## Future Features
+* Moving cards within and across different lists
+* Moving the order of the lists
+* Adding share board function with other users
