@@ -49,3 +49,6 @@ else
     json.extra! user, :id, :email
 end
 ```
+
+In the frontend, the user is allowed to upload a profile picture as show below
+<img src="./app/assets/images/readme_upload_profile.gif">
