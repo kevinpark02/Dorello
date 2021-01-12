@@ -39,4 +39,13 @@ In the model, has_one_attached association was made between the profile photo an
 has_one_attached :photo
 ```
 
+And if the user had a photo uploaded, the photoUrl attribute in the user slice of state was extracted.
 
+```
+if user.photo.attached?
+    json.extract! user, :id, :email
+    json.photoUrl url_for(user.photo)
+else
+    json.extra! user, :id, :email
+end
+```
