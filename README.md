@@ -90,6 +90,49 @@ handleSubmit(e) {
         })
     }
 ```
+### Modal 
+Created a modal function where two separate forms (card edit form and comment form) appear as shown below.
+<img src="./app/assets/images/readme_modal.gif">
+
+Action creator of opening modal was set to take place when the card is clicked:
+```
+<Link onClick={this.handleClick} to={`/boards/${board.id}/${card.id}`}>
+    <div className="card-container">
+        <li className="card-name">{card.name}</li>
+        {due}
+    </div>
+</Link>
+```
+```
+handleClick(e) {
+    e.preventDefault();
+    this.props.openModal('edit', this.props.card.id)
+}
+```
+And the Modal function would display the appropriate component when the modal opens:
+```
+function Modal({modal, cardId, closeModal}) {
+    if (!modal) {
+        return null;
+    }
+
+    let component;
+    switch (modal) {
+        case 'edit':
+            component = <EditCardFormContainer cardId={cardId}
+                                               closeModal={closeModal}/>;
+            break;
+```
+```
+return (
+    <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+            {component}
+        </div>
+    </div>
+)
+```
+
 ## Future Features
 * Moving cards within and across different lists
 * Moving the order of the lists
