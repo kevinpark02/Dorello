@@ -52,3 +52,33 @@ end
 
 In the frontend, the user is allowed to upload a profile picture as show below
 <img src="./app/assets/images/readme_upload_profile.gif">
+
+The uploading of the photo was handled by designing the form as such:
+```
+<form onSubmit={this.handleSubmit}>
+    <h5>Please choose a profile picture</h5>
+    <input type="file"
+            onChange={this.handleFile}/>
+    <input type="submit" value="Update Profile Picture"/>
+</form>
+```
+```
+handleFile(e) {
+    this.setState({photoFile: e.target.files[0]});
+}
+```
+```
+handleSubmit(e) {
+        const formData = new FormData();
+        if (this.state.photoFile) {
+            formData.append('user[photo]', this.state.photoFile);
+        }
+        $.ajax({
+            url: `/api/users/${this.props.currentUser.id}`,
+            method: "PATCH",
+            data: formData,
+            contentType: false,
+            processData: false
+        })
+    }
+```
