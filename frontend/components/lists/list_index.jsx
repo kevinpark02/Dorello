@@ -2,13 +2,17 @@ import React from 'react';
 import ListIndexItem from "./list_index_item";
 import ListFormContainer from "./create_list_form_container";
 import EditBoardFormContainer from "../boards/edit_board_form_container";
-import { Link } from 'react-router-dom';
+import { DragDropContext } from "react-beautiful-dnd";
 
 class ListIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.listForm;
+        this.state = {
+            clicked: false,
+            cardOrder: []
+        }
         this.handleClick = this.handleClick.bind(this);
+        this.onDragEnd = this.onDragEnd.bind(this);
     }
 
     handleClick(e) {
@@ -24,7 +28,29 @@ class ListIndex extends React.Component {
         }
     }
 
+    onDragEnd(result) {
+        const { destination, source, draggableId } = result;
+
+        if (!destination) {
+            return;
+        }
+
+        if (
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const cards = this.props.cards;
+        const newCardIds = Object.keys(cards);
+        newCardIds.splice(source.index, 1);
+        newCardIds.splice(destination.index, 0, draggableId);
+        this.setState({["cardOrder"]: newCardIds});
+    }
+
     render() {
+        console.log(this.state);
         const lists = this.props.lists;
         const board = this.props.board;
         const createList = this.props.createList;
@@ -50,7 +76,6 @@ class ListIndex extends React.Component {
         const listForm = (this.state['clicked']) ? 
             <ListFormContainer boardId={board.id} handleClick={this.handleClick}/> : 
                 <button className="list-form-cont-before" onClick={this.handleClick}>+ Add another list</button>
-
         
         return(
             <ul className="list-display-container">
@@ -58,22 +83,24 @@ class ListIndex extends React.Component {
                     {edit}
                     {deleteButton}
                 </div>
-                <div className="lists-cont">
-                    {lists.map(list => {
-                        if(list.board_id === board.id) {
-                            return(
-                                    <ListIndexItem list={list}
-                                                key={list.id}
-                                                createList={createList}
-                                                updateList={updateList}
-                                                deleteList={deleteList}
-                                                board={board}/>
-                            )
-                        }
-                    })}
-                    {listForm}
-                    {/* <ListFormContainer boardId={board.id}/> */}
-                </div>
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <div className="lists-cont">
+                        {lists.map(list => {
+                            if(list.board_id === board.id) {
+                                return(
+                                        <ListIndexItem list={list}
+                                                    key={list.id}
+                                                    createList={createList}
+                                                    updateList={updateList}
+                                                    deleteList={deleteList}
+                                                    board={board}
+                                                    cardOrder={this.state.cardOrder}/>
+                                )
+                            }
+                        })}
+                        {listForm}
+                    </div>
+                </DragDropContext>
             </ul>
         )
     }

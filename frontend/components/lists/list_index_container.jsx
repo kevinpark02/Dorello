@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
         board: state.entities.boards[ownProps.match.params.boardId],
         lists: Object.values(state.entities.lists),
         authorId: state.session.id,
-        listForm: { clicked: false }
+        listForm: { clicked: false },
+        cards: state.entities.cards
     })
 }
 

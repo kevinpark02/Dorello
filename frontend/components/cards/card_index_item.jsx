@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { Draggable } from "react-beautiful-dnd";
 
 class CardIndexItem extends React.Component {
     constructor(props) {
@@ -20,12 +21,21 @@ class CardIndexItem extends React.Component {
         const editForm = this.props.editForm;
 
         return(
-            <Link onClick={this.handleClick} to={`/boards/${board.id}/${card.id}`}>
-                <div className="card-container">
-                    <li className="card-name">{card.name}</li>
-                    {due}
-                </div>
-            </Link>
+            <Draggable draggableId={(this.props.card.id).toString()} index={this.props.index}>
+                {(provided) => (
+                    <Link onClick={this.handleClick} 
+                          to={`/boards/${board.id}/${card.id}`}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                    >
+                        <div className="card-container">
+                            <li className="card-name">{card.name}</li>
+                            {due}
+                        </div>
+                    </Link>
+                )}
+            </Draggable>
         )
     }
 }
