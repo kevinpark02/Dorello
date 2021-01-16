@@ -43,14 +43,13 @@ class ListIndex extends React.Component {
         }
 
         const cards = this.props.cards;
-        const newCardIds = Object.keys(cards);
+        const newCardIds = this.state.cardOrder.length === 0 ? Object.keys(cards) : this.state.cardOrder; 
         newCardIds.splice(source.index, 1);
         newCardIds.splice(destination.index, 0, draggableId);
         this.setState({["cardOrder"]: newCardIds});
     }
 
     render() {
-        console.log(this.state);
         const lists = this.props.lists;
         const board = this.props.board;
         const createList = this.props.createList;
