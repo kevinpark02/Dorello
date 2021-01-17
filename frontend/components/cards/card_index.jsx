@@ -8,7 +8,6 @@ class CardIndex extends React.Component {
     }
 
     render() {
-        // debugger;
         const board = this.props.board;
         const list = this.props.list;
         const cards = this.props.cards;
@@ -23,17 +22,15 @@ class CardIndex extends React.Component {
                             {this.props.cardOrder.map((cardOrderId, index) => {
                                 if(cards[cardOrderId].list_id === list.id) {
                                     return(
-                                        <div>
-                                            <CardIndexItem card={cards[cardOrderId.toString()]}
-                                                            key={cardOrderId.toString()}
-                                                            board={board}
-                                                            openModal={openModal}
-                                                            index={index}/>
-                                            {provided.placeholder}
-                                        </div>
+                                        <CardIndexItem card={cards[cardOrderId.toString()]}
+                                                        key={cardOrderId.toString()}
+                                                        board={board}
+                                                        openModal={openModal}
+                                                        index={index}/>                                    
                                     )
                                 }
                             })} 
+                            {provided.placeholder}
                         </ul>
                     )}
                 </Droppable >
@@ -47,17 +44,15 @@ class CardIndex extends React.Component {
                             {Object.values(cards).map((card, index) => {
                                 if(card.list_id === list.id) {
                                     return(
-                                        <div>
-                                            <CardIndexItem card={card}
-                                                        key={card.id}
-                                                        board={board}
-                                                        openModal={openModal}
-                                                        index={index}/>
-                                            {provided.placeholder}
-                                        </div>
+                                        <CardIndexItem card={card}
+                                                    key={card.id}
+                                                    board={board}
+                                                    openModal={openModal}
+                                                    index={index}/>
                                     )
                                 }
                             })}
+                            {provided.placeholder}
                         </ul>
                     )}
                 </Droppable>
@@ -66,31 +61,7 @@ class CardIndex extends React.Component {
 
 
         return(
-            <div>
-                {cardDisplay}
-            </div>
-            // <Droppable droppableId={(this.props.list.id).toString()}>
-            //     {(provided) => (
-            //         <ul
-            //             ref={provided.innerRef}
-            //             {...provided.droppableProps}
-            //         >
-            //             {cardDisplay}
-            //             {/* {cards.map((card, index) => {
-            //                 if(card.list_id === list.id){
-            //                     return(
-            //                         <CardIndexItem card={card}
-            //                                     key={card.id}
-            //                                     board={board}
-            //                                     openModal={openModal}
-            //                                     index={index}/>
-            //                     )
-            //                 }
-            //             })} */}
-            //             {provided.placeholder}
-            //         </ul>
-            //     )}
-            // </Droppable>
+                cardDisplay
         )
     }
 }
