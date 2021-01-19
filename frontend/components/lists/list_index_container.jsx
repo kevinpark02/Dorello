@@ -7,7 +7,8 @@ import { withRouter } from 'react-router';
 const mapStateToProps = (state, ownProps) => {
     return({
         board: state.entities.boards[ownProps.match.params.boardId],
-        lists: Object.values(state.entities.lists),
+        // lists: Object.values(state.entities.lists),
+        lists: state.entities.lists,
         authorId: state.session.id,
         listForm: { clicked: false },
         cards: state.entities.cards

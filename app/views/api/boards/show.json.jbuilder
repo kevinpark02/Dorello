@@ -7,7 +7,7 @@ end
 json.lists do
     @board.lists.each do |list|
         json.set! list.id do
-            json.extract! list, :id, :title, :board_id, :creator_id  
+            json.extract! list, :id, :title, :board_id, :creator_id, :card_order  
         end 
     end
 end
