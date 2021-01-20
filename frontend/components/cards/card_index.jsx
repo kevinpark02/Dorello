@@ -8,6 +8,7 @@ class CardIndex extends React.Component {
     }
 
     render() {
+        // debugger
         const board = this.props.board;
         const list = this.props.list;
         const cards = this.props.cards;
