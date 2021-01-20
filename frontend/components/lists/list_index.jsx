@@ -41,11 +41,13 @@ class ListIndex extends React.Component {
         ) {
             return;
         }
+
         const cards = this.props.cards;
 
         const listId = result.destination.droppableId;
         const boardId = this.props.lists[listId].board_id;
-        // debugger;
+
+        // debugger
 
         let cardOrder = this.props.lists[listId].card_order.length === 0 ? 
             Object.keys(cards).map(cardId => {
@@ -64,13 +66,14 @@ class ListIndex extends React.Component {
                 }
             })
         
+            
+        cardOrder.splice(source.index, 1);
+        cardOrder.splice(destination.index, 0, draggableId);
+        
         cardOrder = cardOrder.filter(function(card) {
             return card !== undefined;
         });
-
-        cardOrder.splice(source.index, 1);
-        cardOrder.splice(destination.index, 0, draggableId);
-
+            
         this.props.updateList({id: listId,
                          board_id: boardId,
                          card_order: cardOrder
