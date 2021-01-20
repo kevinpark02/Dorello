@@ -45,10 +45,29 @@ class ListIndex extends React.Component {
 
         const listId = result.destination.droppableId;
         const boardId = this.props.lists[listId].board_id;
+        // debugger;
 
-        console.log(this.props.lists[listId].card_order)
+        let cardOrder = this.props.lists[listId].card_order.length === 0 ? 
+            Object.keys(cards).map(cardId => {
+                if(cards[cardId].list_id.toString() === listId) {
+                    return (
+                        cardId
+                    )
+                }
+            }) 
+            : 
+            (this.props.lists[listId].card_order).map(cardId => {
+                if(cards[cardId].list_id.toString() === listId) {
+                    return(
+                        cardId
+                    )
+                }
+            })
+        
+        cardOrder = cardOrder.filter(function(card) {
+            return card !== undefined;
+        });
 
-        let cardOrder = this.props.lists[listId].card_order.length === 0 ? Object.keys(cards) : this.props.lists[listId].card_order; 
         cardOrder.splice(source.index, 1);
         cardOrder.splice(destination.index, 0, draggableId);
 
@@ -56,8 +75,6 @@ class ListIndex extends React.Component {
                          board_id: boardId,
                          card_order: cardOrder
                         });
-
-        this.setState({["cardOrder"]: cardOrder});
     }
 
     render() {
@@ -104,7 +121,7 @@ class ListIndex extends React.Component {
                                                     updateList={updateList}
                                                     deleteList={deleteList}
                                                     board={board}
-                                                    cardOrder={this.state.cardOrder}/>
+                                                    cardOrder={list.card_order}/>
                                 )
                             }
                         })}
