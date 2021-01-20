@@ -20,13 +20,19 @@ class EditCardForm extends React.Component {
 
         let cardOrder = this.props.lists[this.props.card.list_id].card_order;
         let deleteIdx = cardOrder.indexOf(this.props.card.id.toString());
-        cardOrder.splice(deleteIdx, 1);
+
+        if (cardOrder.length === 1) {
+            cardOrder = [];
+        } else {
+            cardOrder.splice(deleteIdx, 1);
+        }
 
         this.props.updateList({
             id: this.props.card.list_id,
             board_id: this.props.lists[this.props.card.list_id].board_id,
             card_order: cardOrder
         })
+            // .then(res => console.log(res))
             .then(() => this.props.deleteCard(this.props.card.id))
             .then(() => this.props.closeModal()); 
     }
