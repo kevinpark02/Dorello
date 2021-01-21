@@ -23,17 +23,20 @@ class CardIndexItem extends React.Component {
         return(
             <Draggable draggableId={(this.props.card.id).toString()} index={this.props.index}>
                 {(provided) => (
-                    <Link onClick={this.handleClick} 
-                          to={`/boards/${board.id}/${card.id}`}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          ref={provided.innerRef}
-                    >
-                        <div className="card-container">
-                            <li className="card-name">{card.name}</li>
-                            {due}
-                        </div>
-                    </Link>
+                    <div>
+                        <Link onClick={this.handleClick} 
+                            to={`/boards/${board.id}/${card.id}`}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                        >
+                            <div className="card-container">
+                                <li className="card-name">{card.name}</li>
+                                {due}
+                            </div>
+                        </Link>
+                        {this.props.placeholder}
+                    </div>
                 )}
             </Draggable>
         )

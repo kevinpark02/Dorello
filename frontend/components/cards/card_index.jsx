@@ -17,7 +17,8 @@ class CardIndex extends React.Component {
         const cardDisplay = (this.props.cardOrder.length !== 0) ?
                 <Droppable droppableId={(this.props.list.id).toString()}>
                     {(provided) => (
-                        <ul ref={provided.innerRef}
+                        <ul className="card-outer-container"
+                            ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
                             {this.props.cardOrder.map((cardOrderId, index) => {
@@ -27,7 +28,8 @@ class CardIndex extends React.Component {
                                                         key={cardOrderId.toString()}
                                                         board={board}
                                                         openModal={openModal}
-                                                        index={index}/>                                    
+                                                        index={index}
+                                                        placeholder={provided.placeholder}/>                                    
                                     )
                                 }
                             })} 
@@ -38,7 +40,7 @@ class CardIndex extends React.Component {
                 :
                 <Droppable droppableId={(this.props.list.id).toString()}>
                     {(provided) => (
-                        <ul
+                        <ul className="card-outer-container"
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
@@ -49,11 +51,12 @@ class CardIndex extends React.Component {
                                                     key={card.id}
                                                     board={board}
                                                     openModal={openModal}
-                                                    index={index}/>
+                                                    index={index}
+                                                    placeholder={provided.placeholder}/>
                                     )
                                 }
                             })}
-                            {provided.placeholder}
+                            {/* {provided.placeholder} */}
                         </ul>
                     )}
                 </Droppable>
