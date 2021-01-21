@@ -30,7 +30,8 @@ class ListIndex extends React.Component {
 
     onDragEnd(result) {
         const { destination, source, draggableId } = result;
-        // console.log(result);
+        let cardOrder;
+
         if (!destination) {
             return;
         }
@@ -42,42 +43,69 @@ class ListIndex extends React.Component {
             return;
         }
 
-        const cards = this.props.cards;
+        if (destination.droppableId !== source.droppableId) {
+            const sourceList = this.props.lists[source.droppableId];
+            const destinationList = this.props.lists[destination.droppableId];
+            const currentBoardId = this.props.lists[sourceList.id].board_id;
 
-        const listId = result.destination.droppableId;
-        const boardId = this.props.lists[listId].board_id;
+            let sourceCardOrder = sourceList.card_order;
+            let destinationCardOrder = destinationList.card_order;
+            
+            sourceCardOrder.splice(source.index, 1);
+            destinationCardOrder.splice(destination.index, 0, draggableId)
 
-        // debugger
-
-        let cardOrder = this.props.lists[listId].card_order.length === 0 ? 
-            Object.keys(cards).map(cardId => {
-                if(cards[cardId].list_id.toString() === listId) {
-                    return (
-                        cardId
-                    )
-                }
-            }) 
-            : 
-            (this.props.lists[listId].card_order).map(cardId => {
-                if(cards[cardId].list_id.toString() === listId) {
-                    return(
-                        cardId
-                    )
-                }
+            this.props.updateList({
+                id: sourceList.id,
+                board_id: currentBoardId,
+                card_order: sourceCardOrder
             })
-        
+
+            this.props.updateList({
+                id: destinationList.id,
+                board_id: currentBoardId,
+                card_order: destinationCardOrder
+            })
+
+            this.props.updateCard({
+                id: this.props.cards[draggableId].id,
+                creator_id: this.props.cards[draggableId].creator_id,
+                list_id: destination.droppableId
+            })
+        } else {
+            const cards = this.props.cards;
+            const listId = destination.droppableId;
+            const boardId = this.props.lists[listId].board_id;
+    
+            cardOrder = this.props.lists[listId].card_order.length === 0 ? 
+                Object.keys(cards).map(cardId => {
+                    if(cards[cardId].list_id.toString() === listId) {
+                        return (
+                            cardId
+                        )
+                    }
+                }) 
+                : 
+                (this.props.lists[listId].card_order).map(cardId => {
+                    if(cards[cardId].list_id.toString() === listId) {
+                        return(
+                            cardId
+                        )
+                    }
+                })
+              
+            cardOrder.splice(source.index, 1);
+            cardOrder.splice(destination.index, 0, draggableId);
             
-        cardOrder.splice(source.index, 1);
-        cardOrder.splice(destination.index, 0, draggableId);
-        
-        cardOrder = cardOrder.filter(function(card) {
-            return card !== undefined;
-        });
-            
-        this.props.updateList({id: listId,
-                         board_id: boardId,
-                         card_order: cardOrder
-                        });
+            cardOrder = cardOrder.filter(function(card) {
+                return card !== undefined;
+            });
+                
+            this.props.updateList({id: listId,
+                             board_id: boardId,
+                             card_order: cardOrder
+                            });
+        }
+
     }
 
     render() {

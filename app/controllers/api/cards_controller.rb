@@ -14,7 +14,8 @@ class Api::CardsController < ApplicationController
     def update
         @card = Card.find_by(id: params[:id])
         # debugger
-        if @card && ((@card.list_id.to_s) == card_params[:list_id]) && ((@card.creator_id.to_s) == card_params[:creator_id]) && @card.update(card_params)
+        # if @card && ((@card.list_id.to_s) == card_params[:list_id]) && ((@card.creator_id.to_s) == card_params[:creator_id]) && @card.update(card_params)
+        if @card && ((@card.creator_id.to_s) == card_params[:creator_id]) && @card.update(card_params)
             render :show
         else
             render json: @card.errors.full_messages, status: 422
