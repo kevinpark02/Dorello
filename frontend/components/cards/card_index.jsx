@@ -16,7 +16,7 @@ class CardIndex extends React.Component {
 
         const cardDisplay = (this.props.cardOrder.length !== 0) ?
                 <Droppable droppableId={(this.props.list.id).toString()}>
-                    {(provided) => (
+                    {(provided, snapshot) => (
                         <ul className="card-outer-container"
                             ref={provided.innerRef}
                             {...provided.droppableProps}
@@ -28,11 +28,10 @@ class CardIndex extends React.Component {
                                                         key={cardOrderId.toString()}
                                                         board={board}
                                                         openModal={openModal}
-                                                        index={index}
-                                                        placeholder={provided.placeholder}/>                                    
+                                                        index={index}/>                                    
                                     )
                                 }
-                            })} 
+                            })}
                             {provided.placeholder}
                         </ul>
                     )}
@@ -51,12 +50,11 @@ class CardIndex extends React.Component {
                                                     key={card.id}
                                                     board={board}
                                                     openModal={openModal}
-                                                    index={index}
-                                                    placeholder={provided.placeholder}/>
+                                                    index={index}/>
                                     )
                                 }
                             })}
-                            {/* {provided.placeholder} */}
+                            {provided.placeholder}
                         </ul>
                     )}
                 </Droppable>

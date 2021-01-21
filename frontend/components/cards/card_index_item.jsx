@@ -22,7 +22,7 @@ class CardIndexItem extends React.Component {
 
         return(
             <Draggable draggableId={(this.props.card.id).toString()} index={this.props.index}>
-                {(provided) => (
+                {(provided, snapshot) => (
                     <div>
                         <Link onClick={this.handleClick} 
                             to={`/boards/${board.id}/${card.id}`}
@@ -35,7 +35,6 @@ class CardIndexItem extends React.Component {
                                 {due}
                             </div>
                         </Link>
-                        {this.props.placeholder}
                     </div>
                 )}
             </Draggable>
