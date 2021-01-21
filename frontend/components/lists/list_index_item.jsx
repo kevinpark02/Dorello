@@ -2,6 +2,7 @@ import React from 'react';
 import EditListFormContainer from "./edit_list_form_container";
 import CardIndexContainer from "../cards/card_index_container";
 import CardFormContainer from "../cards/create_card_form_container";
+import { Draggable } from 'react-beautiful-dnd';
 
 class ListIndexItem extends React.Component {
     constructor(props) {
@@ -36,17 +37,24 @@ class ListIndexItem extends React.Component {
         }
 
         return(
-            <div className="list-wrapper">
-                <div className="list-top-content">
-                    <li className="list-title">{list.title}</li> 
-                    <button className="list-delete-btn" onClick={this.handleClick}>Delete</button>
-                </div>
-                <EditListFormContainer list={list}/>
-                <CardIndexContainer list={list}
-                                    board={board}
-                                    cardOrder={this.props.cardOrder}/>
-                {cardForm}
-            </div>
+            <Draggable draggableId={list.id.toString()} index={this.props.index}>
+                {(provided) => (
+                    <div className="list-wrapper"
+                         {...provided.draggableProps}
+                         ref={provided.innerRef}>
+                        <div className="list-top-content"
+                             {...provided.dragHandleProps}>
+                            <li className="list-title">{list.title}</li> 
+                            <button className="list-delete-btn" onClick={this.handleClick}>Delete</button>
+                        </div>
+                        <EditListFormContainer list={list}/>
+                        <CardIndexContainer list={list}
+                                            board={board}
+                                            cardOrder={this.props.cardOrder}/>
+                        {cardForm}
+                    </div>
+                )}
+            </Draggable>
         )
     }
 }

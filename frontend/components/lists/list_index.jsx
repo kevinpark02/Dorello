@@ -2,7 +2,7 @@ import React from 'react';
 import ListIndexItem from "./list_index_item";
 import ListFormContainer from "./create_list_form_container";
 import EditBoardFormContainer from "../boards/edit_board_form_container";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 class ListIndex extends React.Component {
     constructor(props) {
@@ -142,22 +142,32 @@ class ListIndex extends React.Component {
                     {deleteButton}
                 </div>
                 <DragDropContext onDragEnd={this.onDragEnd}>
-                    <div className="lists-cont">
-                        {lists.map(list => {
-                            if(list.board_id === board.id) {
-                                return(
-                                        <ListIndexItem list={list}
-                                                    key={list.id}
-                                                    createList={createList}
-                                                    updateList={updateList}
-                                                    deleteList={deleteList}
-                                                    board={board}
-                                                    cardOrder={list.card_order}/>
-                                )
-                            }
-                        })}
-                        {listForm}
-                    </div>
+                    <Droppable droppableId="all-lists" 
+                               direction="horizontal" 
+                               type="list">
+                        {(provided) => (
+                            <div className="lists-cont"
+                                 {...provided.droppableProps}
+                                 ref={provided.innerRef}>
+                                {lists.map((list,idx) => {
+                                    if(list.board_id === board.id) {
+                                        return(
+                                                <ListIndexItem list={list}
+                                                            key={list.id}
+                                                            createList={createList}
+                                                            updateList={updateList}
+                                                            deleteList={deleteList}
+                                                            board={board}
+                                                            cardOrder={list.card_order}
+                                                            index={idx}/>
+                                        )
+                                    }
+                                })}
+                                {provided.placeholder}
+                                {listForm}
+                            </div>
+                        )}
+                    </Droppable>
                 </DragDropContext>
             </ul>
         )
