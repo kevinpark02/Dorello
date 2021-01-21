@@ -15,7 +15,14 @@ class CardForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createCard(this.state).then(() => this.props.handleCardForm(e))
+        this.props.createCard(this.state)
+            // .then(res => console.log(res.card.id.toString()))
+            .then((res) => this.props.updateList({
+                id: res.card.list_id.toString(),
+                board_id: this.props.lists[res.card.list_id].board_id,
+                card_order: this.props.lists[res.card.list_id].card_order.concat([res.card.id.toString()])
+            }))
+            .then(() => this.props.handleCardForm(e))
         this.setState({ ['name']: "" })
     }
 
