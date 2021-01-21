@@ -43,9 +43,9 @@ class ListIndexItem extends React.Component {
                 </div>
                 <EditListFormContainer list={list}/>
                 <CardIndexContainer list={list}
-                                    board={board}/>
+                                    board={board}
+                                    cardOrder={this.props.cardOrder}/>
                 {cardForm}
-                {/* <CardFormContainer list={list}/> */}
             </div>
         )
     }

@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     return({
         board: ownProps.board,
         list: ownProps.list,
-        cards: Object.values(state.entities.cards)
+        // cards: Object.values(state.entities.cards)
+        cards: state.entities.cards
     })
 }
 
