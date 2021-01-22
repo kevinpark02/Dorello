@@ -43,7 +43,6 @@ class ListIndex extends React.Component {
         ) {
             return;
         }
-
         if (type === "card") {
             if (destination.droppableId !== source.droppableId) {
                 const sourceList = this.props.lists[source.droppableId];

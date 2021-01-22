@@ -17,7 +17,7 @@ class CardIndex extends React.Component {
         const cardDisplay = (this.props.cardOrder.length !== 0) ?
                 <Droppable droppableId={(this.props.list.id).toString()}
                            type="card">
-                    {(provided, snapshot) => (
+                    {(provided) => (
                         <ul className="card-outer-container"
                             ref={provided.innerRef}
                             {...provided.droppableProps}
