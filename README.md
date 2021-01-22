@@ -41,7 +41,7 @@ Users can create a board to start a project. Inside the board, lists are created
 
 ### Drag-and-Drop Lists and Cards
 
-<img src="./app/assets/images/readme_dragdrop.gif>
+<img src="./app/assets/images/readme_dragdrop.gif">
 
 Within a board, users can re-position the lists, and they can also move cards from one list to another. In order to make the changes made in the frontend to persist in the backend, array columns "list_order" and "card_order" was added to the board model and the list model respectively. Whenever lists and/or cards change their location, these arrays are updated. Below is a code snippet of handling the case when one card moves from one list to another. Similar method was implemented for handling lists switching positions and cards switching positions within a list.
 
