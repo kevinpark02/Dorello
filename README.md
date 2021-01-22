@@ -10,7 +10,7 @@ Dorellos is a Trello clone. It is a project management application that allows t
 
 Backend:
 * Ruby on Rails v.2.5.1
-* PostgreSQL - v13c
+* PostgreSQL - v13
 
 Frontend:
 * React - ^17.0.1
@@ -22,6 +22,7 @@ Hosting:
 
 Additonal technologies:
 * [BCrypt](https://github.com/codahale/bcrypt-ruby): for secure user authentication v3.1.7
+* [React-Beautiful-Dnd](https://github.com/atlassian/react-beautiful-dnd): for adding drag and drop functionality v13.0.0
 * [FontAwesome](https://fontawesome.com/): for icons
 * [Unsplash Source](https://source.unsplash.com/): for background images
 
@@ -37,6 +38,43 @@ Users can log in, sign up, or try the demo version of the application to use ful
 Users can create a board to start a project. Inside the board, lists are created and within the lists, action items (cards) can be created and assigned a due date. Clicking on a card open up a modal where a user can set a due date for the action item, write a description. Different people involved in the project can comment in the card for discussions
 
 <img src="./app/assets/images/readme_board_list_card_comment.gif">
+
+### Drag-and-Drop Lists and Cards
+
+<img src="./app/assets/images/readme_dragdrop.gif>
+
+Within a board, users can re-position the lists, and they can also move cards from one list to another. In order to make the changes made in the frontend to persist in the backend, array columns "list_order" and "card_order" was added to the board model and the list model respectively. Whenever lists and/or cards change their location, these arrays are updated. Below is a code snippet of handling the case when one card moves from one list to another. Similar method was implemented for handling lists switching positions and cards switching positions within a list.
+
+```
+if (destination.droppableId !== source.droppableId) {
+    const sourceList = this.props.lists[source.droppableId];
+    const destinationList = this.props.lists[destination.droppableId];
+    const currentBoardId = this.props.lists[sourceList.id].board_id;
+
+    let sourceCardOrder = sourceList.card_order;
+    let destinationCardOrder = destinationList.card_order;
+    
+    sourceCardOrder.splice(source.index, 1);
+    destinationCardOrder.splice(destination.index, 0, draggableId)
+
+    this.props.updateList({
+        id: sourceList.id,
+        board_id: currentBoardId,
+        card_order: sourceCardOrder
+    })
+
+    this.props.updateList({
+        id: destinationList.id,
+        board_id: currentBoardId,
+        card_order: destinationCardOrder
+    })
+
+    this.props.updateCard({
+        id: this.props.cards[draggableId].id,
+        creator_id: this.props.cards[draggableId].creator_id,
+        list_id: destination.droppableId
+    })
+```
 
 ### AWS S3 Image Upload
 
