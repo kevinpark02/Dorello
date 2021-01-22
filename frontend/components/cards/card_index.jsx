@@ -38,7 +38,8 @@ class CardIndex extends React.Component {
                     )}
                 </Droppable >
                 :
-                <Droppable droppableId={(this.props.list.id).toString()}>
+                <Droppable droppableId={(this.props.list.id).toString()}
+                           type="card">
                     {(provided) => (
                         <ul className="card-outer-container"
                             ref={provided.innerRef}
@@ -59,9 +60,6 @@ class CardIndex extends React.Component {
                         </ul>
                     )}
                 </Droppable>
-
-
-
 
         return(
                 cardDisplay
