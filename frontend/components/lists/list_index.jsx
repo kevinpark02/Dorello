@@ -175,7 +175,8 @@ class ListIndex extends React.Component {
                                                             deleteList={deleteList}
                                                             board={board}
                                                             cardOrder={lists[listId].card_order}
-                                                            index={idx}/>
+                                                            index={idx}
+                                                            updateBoard={this.props.updateBoard}/>
                                         )
                                     }
                                 })}

@@ -14,7 +14,21 @@ class ListIndexItem extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.deleteList(this.props.list.id)
+
+        let listOrder = this.props.board.list_order;
+        let deleteIdx = listOrder.indexOf(this.props.list.id.toString());
+
+        if (listOrder.length === 1) {
+            listOrder = [];
+        } else {
+            listOrder.splice(deleteIdx, 1);
+        }
+
+        this.props.updateBoard({
+            id: this.props.board.id,
+            list_order: listOrder
+        })
+            .then(() => this.props.deleteList(this.props.list.id))
     }
 
     handleCardForm(e) {
