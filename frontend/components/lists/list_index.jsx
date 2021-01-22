@@ -117,7 +117,7 @@ class ListIndex extends React.Component {
             this.props.updateBoard({
                 id: board.id,
                 list_order: listOrder
-            }).then(res => console.log(res))
+            })
         }
 
     }
