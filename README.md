@@ -74,6 +74,7 @@ if (destination.droppableId !== source.droppableId) {
         creator_id: this.props.cards[draggableId].creator_id,
         list_id: destination.droppableId
     })
+}
 ```
 
 ### AWS S3 Image Upload
