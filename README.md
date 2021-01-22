@@ -173,6 +173,5 @@ return (
 ```
 
 ## Future Features
-* Moving cards within and across different lists
-* Moving the order of the lists
+* Adding a search bar to find a specific board
 * Adding share board function with other users
