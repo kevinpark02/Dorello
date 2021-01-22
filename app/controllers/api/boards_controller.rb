@@ -28,7 +28,8 @@ class Api::BoardsController < ApplicationController
 
         # debugger
 
-        @board = current_user.boards.find_by(id: params[:id])
+        # @board = current_user.boards.find_by(id: params[:id])
+        @board = Board.find_by(id: params[:id])
 
         if @board && @board.update(board_params)
             render :show

@@ -167,17 +167,19 @@ class ListIndex extends React.Component {
                                  ref={provided.innerRef}>
                                 {board.list_order.map((listId,idx) => {
                                     if(Object.keys(lists).length > 0) {
-                                        return(
-                                                <ListIndexItem list={lists[listId]}
-                                                            key={lists[listId].id}
-                                                            createList={createList}
-                                                            updateList={updateList}
-                                                            deleteList={deleteList}
-                                                            board={board}
-                                                            cardOrder={lists[listId].card_order}
-                                                            index={idx}
-                                                            updateBoard={this.props.updateBoard}/>
-                                        )
+                                        if(lists[listId]) {
+                                            return(
+                                                    <ListIndexItem list={lists[listId]}
+                                                                key={lists[listId].id}
+                                                                createList={createList}
+                                                                updateList={updateList}
+                                                                deleteList={deleteList}
+                                                                board={board}
+                                                                cardOrder={lists[listId].card_order}
+                                                                index={idx}
+                                                                updateBoard={this.props.updateBoard}/>
+                                            )
+                                        }
                                     }
                                 })}
                                 {/* {lists.map((list,idx) => {
