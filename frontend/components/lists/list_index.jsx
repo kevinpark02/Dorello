@@ -29,7 +29,6 @@ class ListIndex extends React.Component {
     }
 
     onDragEnd(result) {
-        // debugger
         const { destination, source, draggableId, type } = result;
         let cardOrder;
 
@@ -122,9 +121,7 @@ class ListIndex extends React.Component {
     }
 
     render() {
-        // debugger
         const lists = this.props.lists;
-        // const lists = Object.values(this.props.lists);
         const board = this.props.board;
         const createList = this.props.createList;
         const updateList = this.props.updateList;
@@ -181,20 +178,6 @@ class ListIndex extends React.Component {
                                         }
                                     }
                                 })}
-                                {/* {lists.map((list,idx) => {
-                                    if(list.board_id === board.id) {
-                                        return(
-                                                <ListIndexItem list={list}
-                                                            key={list.id}
-                                                            createList={createList}
-                                                            updateList={updateList}
-                                                            deleteList={deleteList}
-                                                            board={board}
-                                                            cardOrder={list.card_order}
-                                                            index={idx}/>
-                                        )
-                                    }
-                                })} */}
                                 {provided.placeholder}
                                 {listForm}
                             </div>
