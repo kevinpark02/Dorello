@@ -35,7 +35,7 @@ Users can log in, sign up, or try the demo version of the application to use ful
 
 ### Board, Lists, Cards, and Comments
 
-Users can create a board to start a project. Inside the board, lists are created and within the lists, action items (cards) can be created and assigned a due date. Clicking on a card opens up a modal where a user can set a due date for the action item, write a description. Different people involved in the project can comment in the card for discussions
+Users can create a board to start a project. Inside the board, lists are created and within the lists, action items (cards) can be created and assigned a due date. Clicking on a card opens up a modal where a user can set a due date for the action item, write a description. Different people involved in the project can comment in the card for further discussions.
 
 <img src="./app/assets/images/readme_board_list_card_comment.gif">
 
