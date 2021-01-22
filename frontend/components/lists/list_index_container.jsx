@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import ListIndex from './list_index';
 import { createList, updateList, deleteList } from "../../actions/list_actions";
 import { updateCard } from "../../actions/card_actions";
-import { deleteBoard } from "../../actions/board_actions";
+import { updateBoard, deleteBoard } from "../../actions/board_actions";
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => {
         updateList: (list) => dispatch(updateList(list)),
         deleteList: (listId) => dispatch(deleteList(listId)),
         deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
-        updateCard: (card) => dispatch(updateCard(card))
+        updateCard: (card) => dispatch(updateCard(card)),
+        updateBoard: (board) => dispatch(updateBoard(board))
     })
 }
 

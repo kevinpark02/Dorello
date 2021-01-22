@@ -2,7 +2,7 @@ import React from 'react';
 import ListIndexItem from "./list_index_item";
 import ListFormContainer from "./create_list_form_container";
 import EditBoardFormContainer from "../boards/edit_board_form_container";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 class ListIndex extends React.Component {
     constructor(props) {
@@ -29,7 +29,8 @@ class ListIndex extends React.Component {
     }
 
     onDragEnd(result) {
-        const { destination, source, draggableId } = result;
+        // debugger
+        const { destination, source, draggableId, type } = result;
         let cardOrder;
 
         if (!destination) {
@@ -43,73 +44,88 @@ class ListIndex extends React.Component {
             return;
         }
 
-        if (destination.droppableId !== source.droppableId) {
-            const sourceList = this.props.lists[source.droppableId];
-            const destinationList = this.props.lists[destination.droppableId];
-            const currentBoardId = this.props.lists[sourceList.id].board_id;
-
-            let sourceCardOrder = sourceList.card_order;
-            let destinationCardOrder = destinationList.card_order;
-            
-            sourceCardOrder.splice(source.index, 1);
-            destinationCardOrder.splice(destination.index, 0, draggableId)
-
-            this.props.updateList({
-                id: sourceList.id,
-                board_id: currentBoardId,
-                card_order: sourceCardOrder
-            })
-
-            this.props.updateList({
-                id: destinationList.id,
-                board_id: currentBoardId,
-                card_order: destinationCardOrder
-            })
-
-            this.props.updateCard({
-                id: this.props.cards[draggableId].id,
-                creator_id: this.props.cards[draggableId].creator_id,
-                list_id: destination.droppableId
-            })
-        } else {
-            const cards = this.props.cards;
-            const listId = destination.droppableId;
-            const boardId = this.props.lists[listId].board_id;
+        if (type === "card") {
+            if (destination.droppableId !== source.droppableId) {
+                const sourceList = this.props.lists[source.droppableId];
+                const destinationList = this.props.lists[destination.droppableId];
+                const currentBoardId = this.props.lists[sourceList.id].board_id;
     
-            cardOrder = this.props.lists[listId].card_order.length === 0 ? 
-                Object.keys(cards).map(cardId => {
-                    if(cards[cardId].list_id.toString() === listId) {
-                        return (
-                            cardId
-                        )
-                    }
-                }) 
-                : 
-                (this.props.lists[listId].card_order).map(cardId => {
-                    if(cards[cardId].list_id.toString() === listId) {
-                        return(
-                            cardId
-                        )
-                    }
-                })
-              
-            cardOrder.splice(source.index, 1);
-            cardOrder.splice(destination.index, 0, draggableId);
-            
-            cardOrder = cardOrder.filter(function(card) {
-                return card !== undefined;
-            });
+                let sourceCardOrder = sourceList.card_order;
+                let destinationCardOrder = destinationList.card_order;
                 
-            this.props.updateList({id: listId,
-                             board_id: boardId,
-                             card_order: cardOrder
-                            });
+                sourceCardOrder.splice(source.index, 1);
+                destinationCardOrder.splice(destination.index, 0, draggableId)
+    
+                this.props.updateList({
+                    id: sourceList.id,
+                    board_id: currentBoardId,
+                    card_order: sourceCardOrder
+                })
+    
+                this.props.updateList({
+                    id: destinationList.id,
+                    board_id: currentBoardId,
+                    card_order: destinationCardOrder
+                })
+    
+                this.props.updateCard({
+                    id: this.props.cards[draggableId].id,
+                    creator_id: this.props.cards[draggableId].creator_id,
+                    list_id: destination.droppableId
+                })
+            } else {
+                const cards = this.props.cards;
+                const listId = destination.droppableId;
+                const boardId = this.props.lists[listId].board_id;
+        
+                cardOrder = this.props.lists[listId].card_order.length === 0 ? 
+                    Object.keys(cards).map(cardId => {
+                        if(cards[cardId].list_id.toString() === listId) {
+                            return (
+                                cardId
+                            )
+                        }
+                    }) 
+                    : 
+                    (this.props.lists[listId].card_order).map(cardId => {
+                        if(cards[cardId].list_id.toString() === listId) {
+                            return(
+                                cardId
+                            )
+                        }
+                    })
+                  
+                cardOrder.splice(source.index, 1);
+                cardOrder.splice(destination.index, 0, draggableId);
+                
+                cardOrder = cardOrder.filter(function(card) {
+                    return card !== undefined;
+                });
+                    
+                this.props.updateList({id: listId,
+                                 board_id: boardId,
+                                 card_order: cardOrder
+                                });
+            }
+        } else if (type === "list") {
+            let board = this.props.board;
+            let listOrder = board.list_order;
+
+            listOrder.splice(source.index, 1);
+            listOrder.splice(destination.index, 0, draggableId);
+            
+            this.props.updateBoard({
+                id: board.id,
+                list_order: listOrder
+            }).then(res => console.log(res))
         }
 
     }
 
     render() {
-        const lists = Object.values(this.props.lists);
+        // debugger
+        const lists = this.props.lists;
+        // const lists = Object.values(this.props.lists);
         const board = this.props.board;
         const createList = this.props.createList;
         const updateList = this.props.updateList;
@@ -142,22 +158,49 @@ class ListIndex extends React.Component {
                     {deleteButton}
                 </div>
                 <DragDropContext onDragEnd={this.onDragEnd}>
-                    <div className="lists-cont">
-                        {lists.map(list => {
-                            if(list.board_id === board.id) {
-                                return(
-                                        <ListIndexItem list={list}
-                                                    key={list.id}
-                                                    createList={createList}
-                                                    updateList={updateList}
-                                                    deleteList={deleteList}
-                                                    board={board}
-                                                    cardOrder={list.card_order}/>
-                                )
-                            }
-                        })}
-                        {listForm}
-                    </div>
+                    <Droppable droppableId="all-lists" 
+                               direction="horizontal" 
+                               type="list">
+                        {(provided) => (
+                            <div className="lists-cont"
+                                 {...provided.droppableProps}
+                                 ref={provided.innerRef}>
+                                {board.list_order.map((listId,idx) => {
+                                    if(Object.keys(lists).length > 0) {
+                                        if(lists[listId]) {
+                                            return(
+                                                    <ListIndexItem list={lists[listId]}
+                                                                key={lists[listId].id}
+                                                                createList={createList}
+                                                                updateList={updateList}
+                                                                deleteList={deleteList}
+                                                                board={board}
+                                                                cardOrder={lists[listId].card_order}
+                                                                index={idx}
+                                                                updateBoard={this.props.updateBoard}/>
+                                            )
+                                        }
+                                    }
+                                })}
+                                {/* {lists.map((list,idx) => {
+                                    if(list.board_id === board.id) {
+                                        return(
+                                                <ListIndexItem list={list}
+                                                            key={list.id}
+                                                            createList={createList}
+                                                            updateList={updateList}
+                                                            deleteList={deleteList}
+                                                            board={board}
+                                                            cardOrder={list.card_order}
+                                                            index={idx}/>
+                                        )
+                                    }
+                                })} */}
+                                {provided.placeholder}
+                                {listForm}
+                            </div>
+                        )}
+                    </Droppable>
                 </DragDropContext>
             </ul>
         )

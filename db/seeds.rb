@@ -62,6 +62,20 @@ Comment.delete_all
         l17 = List.create(title: "Organize inside", board_id: b6.id, creator_id: u2.id);
         l18 = List.create(title: "Repair", board_id: b6.id, creator_id: u3.id);
 
+# Update Board
+    # Board 1
+        b1.update({id: b1.id, list_order: [l1.id.to_s, l2.id.to_s, l3.id.to_s]})
+    # Board 2
+        b2.update({id: b2.id, list_order: [l4.id.to_s, l5.id.to_s, l6.id.to_s]})
+    # Board 3
+        b3.update({id: b3.id, list_order: [l7.id.to_s, l8.id.to_s, l9.id.to_s]})
+    # Board 4
+        b4.update({id: b4.id, list_order: [l10.id.to_s, l11.id.to_s, l12.id.to_s]})
+    # Board 5
+        b5.update({id: b5.id, list_order: [l13.id.to_s, l14.id.to_s, l15.id.to_s]})
+    # Board 6
+        b6.update({id: b6.id, list_order: [l16.id.to_s, l17.id.to_s, l18.id.to_s]})
+        
 # Card seed
     # List 1
         c1 = Card.create(name: "Shoreline Email", description: "Send email to each class", due_date: "", list_id: l1.id, creator_id: u1.id)
@@ -71,6 +85,15 @@ Comment.delete_all
         c4 = Card.create(name: "Recording", description: "Each person need to take turns coming into the studio", due_date: "", list_id: l2.id, creator_id: u1.id)
     # List 7
         c5 = Card.create(name: "Signup form", description: "Ask Kevin to make it and send it out", due_date: "", list_id: l7.id, creator_id: u1.id)
+
+# Update lists
+    # List 1
+        l1.update({id: l1.id, board_id: b1.id, card_order: [c1.id.to_s, c2.id.to_s]})
+    # List 2
+        l2.update({id: l2.id, board_id: b1.id, card_order: [c3.id.to_s, c4.id.to_s]})
+    # List 7
+        l7.update({id: l7.id, board_id: b3.id, card_order: [c5.id.to_s]})
+
     
 # Comment seed
     # Card 1

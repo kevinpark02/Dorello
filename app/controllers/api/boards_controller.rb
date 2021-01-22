@@ -28,7 +28,8 @@ class Api::BoardsController < ApplicationController
 
         # debugger
 
-        @board = current_user.boards.find_by(id: params[:id])
+        # @board = current_user.boards.find_by(id: params[:id])
+        @board = Board.find_by(id: params[:id])
 
         if @board && @board.update(board_params)
             render :show
@@ -52,6 +53,7 @@ class Api::BoardsController < ApplicationController
     private 
 
     def board_params
-        params.require(:board).permit(:board_name, :author_id)
+        params[:board][:list_order] = [] if params[:board][:list_order] == nil
+        params.require(:board).permit(:id, :board_name, :author_id, list_order: [])
     end
 end
