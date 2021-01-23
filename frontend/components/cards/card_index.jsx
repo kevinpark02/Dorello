@@ -32,7 +32,6 @@ class CardIndex extends React.Component {
                                     )
                                 }
                             })}
-                            {console.log(provided.placeholder)}
                             {provided.placeholder}
                         </ul>
                     )}
