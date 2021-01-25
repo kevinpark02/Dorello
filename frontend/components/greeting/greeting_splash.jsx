@@ -41,6 +41,15 @@ const GreetingSplash = () => {
                     <a href="https://angel.co/u/kevin-park-33" target="_blank"><img src={window.homepage_angelist} alt="homepage_angelist"/></a>
                 </div>
             </div>
+            <div className="sub-content-4">
+                <div className="left-sub-content-4">
+                    <a href="https://www.kevpark.me/" target="_blank"><img src={window.homepage_portfolio} alt="homepage_porfolio"/></a>
+                </div>
+                <div className="right-sub-content-4">
+                    <h1><i class="fas fa-images"></i> &nbsp;Portfolio</h1>
+                    <p>Take a look at the other projects on my portfolio!</p>
+                </div>
+            </div>
         </div>
     )
 }
