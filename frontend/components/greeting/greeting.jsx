@@ -108,6 +108,7 @@ class Greeting extends React.Component {
             <div className="profile-menu-cont" ref={(element) => {this.dropdownProfile = element;}}>
                 <div className="profile-menu">
                     <a href="" onClick={this.uploadProfile}><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Upload&nbsp;Profile&nbsp;Picture</a>
+                    <a href="https://www.kevpark.me/" target="_blank"><i class="fas fa-images"></i>&nbsp;&nbsp;Portfolio</a>
                     <a href="https://www.linkedin.com/in/kevin-park-04286949/" target="_blank"><i className="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
                     <a href="https://github.com/kevinpark02/Dorello.git" target="_blank"><i className="fab fa-github"></i>&nbsp;&nbsp;Github</a>
                     <a href="https://angel.co/u/kevin-park-33" target="_blank"><i class="fab fa-angellist"></i>&nbsp;&nbsp;Angelist</a>
