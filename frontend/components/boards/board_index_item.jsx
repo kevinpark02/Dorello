@@ -12,7 +12,7 @@ class BoardIndexItem extends React.Component {
         if(this.props.board.email === "demo@dorello.com") {
             setTimeout(() => {
                 this.props.deleteBoard(this.props.board.id)
-            }, 600000)
+            }, 3600000)
         }
     }
 
